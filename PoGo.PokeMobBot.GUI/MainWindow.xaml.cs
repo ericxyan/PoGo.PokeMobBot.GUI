@@ -29,7 +29,7 @@ namespace PoGo.PokeMobBot.GUI
         {
             InitializeComponent();
             textboxStatusPositionDescriptionData.Text = "Not Running";
-            textboxLog.Text = "Application Started: " + DateTime.Now.ToString();
+            textblockStatusLog.Text = "Application Started: " + DateTime.Now.ToString();
             labelStatusRuntimeData.Content = "00:00:00.00";
             initialized = true;
             enableControls(false);      // call stop once so that all of the enable/disable states sync with the default checkboxes
