@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoGo.PokeMobBot.GUI"
         mc:Ignorable="d"
-        Title="PoGo.PokeMobBot" Height="600" Width="800">
+        Title="PoGo.PokeMobBot" Height="600" Width="800" MaxHeight="600">
     <Grid>
         <TabControl x:Name="tabSetup" HorizontalAlignment="Stretch" Height="524" Margin="0,0,0,0" VerticalAlignment="Top" >
             <TabItem Header="Status">
@@ -14,14 +14,14 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
-                            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <TextBlock x:Name="textblockStatusLog" TextWrapping="NoWrap" Margin="0,0,0,0" Width="752" Text="Placeholder...The raw log from the CLI will scroll in this window"/>
+                    <Grid Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto">
+                            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <TextBlock x:Name="textblockStatusLog" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="NoWrap" Margin="0,0,0,0" Text="Placeholder...The raw log from the CLI will scroll in this window"/>
                             </StackPanel>
                         </ScrollViewer>
                     </Grid>
-                    <Grid Grid.Row="1" Margin="0,240,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                    <Grid Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                         <Grid Margin="0,0,0,30" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                             <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom">
                                 <Label x:Name="labelStatusLevel" Content="Level" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
@@ -51,9 +51,12 @@
                             </Grid>
                         </Grid>
                         <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom">
-                            <Separator HorizontalAlignment="Center" Height="5" Margin="0,0,0,0" VerticalAlignment="Top" Width="746"/>
-                            <Label x:Name="labelStatusPositionDescription" Content="Description" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxStatusPositionDescriptionData" HorizontalAlignment="Left" Height="23" Margin="104,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="632" IsEnabled="False"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" x:Name="labelStatusPositionDescription" Content="Description" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                            <TextBox Grid.Column="1" x:Name="textboxStatusPositionDescriptionData" Height="23" Margin="0,0,0,0" TextWrapping="NoWrap"  Text="This will be the name of the target location that the bot is walking to" VerticalAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Stretch" />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -463,11 +466,17 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="10,534,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
-        <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="90,534,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False"/>
-        <Label x:Name="labelStatusRuntime" Content="Runtime" HorizontalAlignment="Left" Margin="240,530,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="labelStatusRuntimeData" Content="Runtimedata" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="340,530,0,0"/>
-        <Button x:Name="buttonApply" Content="Apply" HorizontalAlignment="Left" Margin="620,534,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
-        <Button x:Name="buttonExit" Content="Exit" HorizontalAlignment="Left" Margin="700,534,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10">
+            <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+            <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False"/>
+        </Grid>
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,10,10,10">
+            <Label x:Name="labelStatusRuntime" Content="Runtime" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="labelStatusRuntimeData" Content="Runtimedata" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="100,0,0,0"/>
+        </Grid>
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,10">
+            <Button x:Name="buttonApply" Content="Apply" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+            <Button x:Name="buttonExit" Content="Exit" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+        </Grid>
     </Grid>
 </Window>
