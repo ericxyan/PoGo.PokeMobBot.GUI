@@ -5,40 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoGo.PokeMobBot.GUI"
         mc:Ignorable="d"
-        Title="PoGo.PokeMobBot" Height="600" Width="800" ResizeMode="NoResize">
+        Title="PoGo.PokeMobBot" Height="600" Width="800">
     <Grid>
         <TabControl x:Name="tabSetup" HorizontalAlignment="Left" Height="524" Margin="5,0,0,0" VerticalAlignment="Top" Width="775">
             <TabItem Header="Status">
                 <Grid Background="white">
-                    <Grid HorizontalAlignment="Left" Height="246" Margin="10,240,0,0" VerticalAlignment="Top">
-                        <Label x:Name="labelStatusLevel" Content="Level" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusLevelData" Content="Level data" HorizontalAlignment="Left" Margin="110,132,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusXP" Content="XP" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusXPData" Content="XP data" HorizontalAlignment="Left" Margin="110,158,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusXPNextLevel" Content="XP Next Level" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusXPNextLevelData" Content="XP NL data" HorizontalAlignment="Left" Margin="110,184,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusEXP" Content="EXP/H" HorizontalAlignment="Left" Margin="256,106,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusEXPData" Content="EXP/H data" HorizontalAlignment="Left" Margin="356,106,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusPH" Content="P/H" HorizontalAlignment="Left" Margin="256,132,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusPHData" Content="P/H data" HorizontalAlignment="Left" Margin="356,132,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusStardust" Content="Stardust" HorizontalAlignment="Left" Margin="256,158,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusStardustData" Content="Stardust data" HorizontalAlignment="Left" Margin="356,158,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusTransferred" Content="Transferred" HorizontalAlignment="Left" Margin="256,184,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusTransferredCount" Content="Transferred data" HorizontalAlignment="Left" Margin="356,184,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusRecycled" Content="Recycled" HorizontalAlignment="Left" Margin="536,132,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusRecycledData" Content="Recycled data" HorizontalAlignment="Left" Margin="636,132,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusLongitude" Content="Current Longitude" HorizontalAlignment="Left" Margin="536,158,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusLongitudeData" Content="Longitude data" HorizontalAlignment="Left" Margin="636,158,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusLatitude" Content="Current Latitude" HorizontalAlignment="Left" Margin="536,184,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <Label x:Name="labelStatusLatitudeData" Content="Latitude data" HorizontalAlignment="Left" Margin="636,184,0,0" VerticalAlignment="Top" Width="100"/>
-                        <Label x:Name="labelStatusPositionDescription" Content="Description" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxStatusPositionDescriptionData" HorizontalAlignment="Left" Height="23" Margin="104,214,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="632" IsEnabled="False"/>
+                    <Grid Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="353">
+                        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
+                            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBlock x:Name="textblockStatusLog" TextWrapping="NoWrap" Margin="0,0,0,0" Width="752" Text="Placeholder...The raw log from the CLI will scroll in this window"/>
+                            </StackPanel>
+                        </ScrollViewer>
                     </Grid>
-                    <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
-                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-                            <TextBlock x:Name="textblockStatusLog" TextWrapping="NoWrap" Margin="0,0,0,0" Width="752" Height="345" Text="Placeholder...The raw log from the CLI will scroll in this window"/>
-                        </StackPanel>
-                    </ScrollViewer>
+                    <Grid Margin="0,240,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                        <Grid Margin="0,0,0,30" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                                <Label x:Name="labelStatusLevel" Content="Level" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusLevelData" Content="Level data" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusXP" Content="XP" HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusXPData" Content="XP data" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusXPNextLevel" Content="XP Next Level" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusXPNextLevelData" Content="XP NL data" HorizontalAlignment="Left" Margin="100,82,0,0" VerticalAlignment="Top" Width="100"/>
+                            </Grid>
+                            <Grid HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                                <Label x:Name="labelStatusEXP" Content="EXP/H" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusEXPData" Content="EXP/H data" HorizontalAlignment="Left" Margin="100,4,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusPH" Content="P/H" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusPHData" Content="P/H data" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusStardust" Content="Stardust" HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusStardustData" Content="Stardust data" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusTransferred" Content="Transferred" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusTransferredCount" Content="Transferred data" HorizontalAlignment="Left" Margin="100,82,0,0" VerticalAlignment="Top" Width="100"/>
+                            </Grid>
+                            <Grid  HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                                <Label x:Name="labelStatusRecycled" Content="Recycled" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusRecycledData" Content="Recycled data" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusLongitude" Content="Current Longitude" HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusLongitudeData" Content="Longitude data" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="labelStatusLatitude" Content="Current Latitude" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                                <Label x:Name="labelStatusLatitudeData" Content="Latitude data" HorizontalAlignment="Left" Margin="100,82,0,0" VerticalAlignment="Top" Width="100"/>
+                            </Grid>
+                        </Grid>
+                        <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                            <Separator HorizontalAlignment="Center" Height="5" Margin="0,0,0,0" VerticalAlignment="Top" Width="746"/>
+                            <Label x:Name="labelStatusPositionDescription" Content="Description" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxStatusPositionDescriptionData" HorizontalAlignment="Left" Height="23" Margin="104,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="632" IsEnabled="False"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Pokemons">
