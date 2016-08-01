@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoGo.PokeMobBot.GUI"
         mc:Ignorable="d"
-        Title="PoGo.PokeMobBot" Height="600" Width="800">
+        Title="PoGo.PokeMobBot" Height="600" Width="800" MinWidth="800" MinHeight="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -318,32 +318,40 @@
             </TabItem>
 
             <TabItem Header="Exceptions">
-                <Grid x:Name="gridExceptions" Background="white">
-                    <Grid HorizontalAlignment="Left" Height="476" Margin="10,10,0,0" VerticalAlignment="Top" Width="345">
+                <Grid x:Name="gridExceptions" Background="white" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
                         <Label x:Name="labelPokemonsNotToTransfer" Content="Not to Transfer" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="listboxPokemonsNotToTransfer" HorizontalAlignment="Left" Height="445" Margin="0,31,0,0" VerticalAlignment="Top" Width="345" Text="Placeholder... user will edit PokemonsNotToTransfer list" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <TextBox x:Name="listboxPokemonsNotToTransfer" HorizontalAlignment="Stretch" Margin="0,31,0,0" VerticalAlignment="Stretch" Text="Placeholder... user will edit PokemonsNotToTransfer list" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="476" Margin="414,10,0,0" VerticalAlignment="Top" Width="345">
+                    <Grid Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
                         <Label x:Name="labelPokemonsToIgnore" Content="Ignore" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="listboxPokemonsNotToIgnore" HorizontalAlignment="Left" Height="445" Margin="0,31,0,0" VerticalAlignment="Top" Width="345" Text="Placeholder...user will edit PokemonsNotToIgnore here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <TextBox x:Name="listboxPokemonsNotToIgnore" HorizontalAlignment="Stretch" Margin="0,31,0,0" VerticalAlignment="Stretch" Text="Placeholder...user will edit PokemonsNotToIgnore here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Exceptions To Keep">
-                <Grid x:Name="gridExceptionsToKeep" Background="white">
-                    <Grid HorizontalAlignment="Left" Height="486" Margin="10,10,0,0" VerticalAlignment="Top" Width="345">
+                <Grid x:Name="gridExceptionsToKeep" Background="white"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
                         <Label x:Name="labelPokemonsToKeep" Content="Pokemons to keep" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="listboxPokemonsToKeep" HorizontalAlignment="Left" Height="445" Margin="0,31,0,0" VerticalAlignment="Top" Width="345" Text="Placeholder... user will edit PokemonsToKeep list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <TextBox x:Name="listboxPokemonsToKeep" HorizontalAlignment="Stretch" Margin="0,31,0,0" VerticalAlignment="Stretch" Text="Placeholder... user will edit PokemonsToKeep list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="486" Margin="414,10,0,0" VerticalAlignment="Top" Width="345">
+                    <Grid Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
                         <Label x:Name="labelPokemonsToEvolve" Content="Pokemons to evolve" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="listboxPokemonsNotToEvolve" HorizontalAlignment="Left" Height="445" Margin="0,31,0,0" VerticalAlignment="Top" Width="345" Text="Placeholder... user will edit PokemonsNotToEvolve list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <TextBox x:Name="listboxPokemonsNotToEvolve" HorizontalAlignment="Stretch"  Margin="0,31,0,0" VerticalAlignment="Stretch" Text="Placeholder... user will edit PokemonsNotToEvolve list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Transfer Filters">
                 <Grid x:Name="gridTransferFilters" Background="white">
-                    <ListView x:Name="listviewTransferFilter" Height="496" Margin="0,0,0,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                    <ListView x:Name="listviewTransferFilter" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
                         <ListView.View>
                             <GridView x:Name="gridviewTransferFilter">
                                 <GridViewColumn x:Name="gridviewTransferFilterName" Header="Name" Width="200"/>
@@ -357,46 +365,64 @@
             </TabItem>
             <TabItem Header="Snipe Filter">
                 <Grid x:Name="gridSnipeFilter" Background="white">
-                    <GroupBox x:Name="groupboxOptions" Header="Options" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top">
-                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="222">
-                            <CheckBox x:Name="checkboxSnipeAtPokestops" Content="Snipe At Pokestops" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Unchecked="checkboxChanged" Checked="checkboxChanged" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                            <CheckBox x:Name="checkboxIgnoreUnknownIv" Content="Ignore Unknown IV" HorizontalAlignment="Left" Margin="25,30,10,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="checkboxUseTransferIvForSnipe" Content="Use Transfer IV For Snipe" HorizontalAlignment="Left" Margin="25,50,10,0" VerticalAlignment="Top"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <GroupBox x:Name="groupboxOptions" Header="Options" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="222">
+                                    <CheckBox x:Name="checkboxSnipeAtPokestops" Content="Snipe At Pokestops" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Unchecked="checkboxChanged" Checked="checkboxChanged" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <CheckBox x:Name="checkboxIgnoreUnknownIv" Content="Ignore Unknown IV" HorizontalAlignment="Left" Margin="25,30,10,0" VerticalAlignment="Top"/>
+                                    <CheckBox x:Name="checkboxUseTransferIvForSnipe" Content="Use Transfer IV For Snipe" HorizontalAlignment="Left" Margin="25,50,10,0" VerticalAlignment="Top"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupboxSettings" Header="Limits" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                                    <Label x:Name="labelMinDelayBetweenSnipes" Content="Min Delay Between Snipes" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxMinDelayBetweenSnipes" HorizontalAlignment="Left" Height="23" Margin="175,9,10,0" TextWrapping="Wrap" Text="6000" VerticalAlignment="Top" Width="60"/>
+                                    <Label x:Name="labelDelaySnipePokemon" Content="Delay Snipe Pokemon" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxDelaySnipePokemon" HorizontalAlignment="Left" Height="23" Margin="175,34,10,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="60"/>
+                                    <Label x:Name="labelMinPokeyballsToSnipe" Content="Min Pokeballs To Snipe" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxMinPokeballsToSnipe" HorizontalAlignment="Left" Height="23" Margin="175,60,10,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="60"/>
+                                    <Label x:Name="labelMinPokeballsWhileSnipe" Content="Min Pokeballs While Snipe" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxMinPokeballsWhileSnipe" HorizontalAlignment="Left" Height="23" Margin="175,86,10,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupboxLocationServer" Header="Location Server" HorizontalAlignment="Right" Margin="0,10,10,10" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" >
+                                    <CheckBox x:Name="checkboxUseSnipeLocationServer" Content="Use Snipe Location Server" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <Label x:Name="labelSnipeLocationServer" Content="Snipe Location Server" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxSnipeLocationServer" HorizontalAlignment="Left" Height="23" Margin="160,27,4,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="60"/>
+                                    <Label x:Name="labelSnipeLocationServerPort" Content="Snipe Location Server Port" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxSnipeLocationServerPort" HorizontalAlignment="Left" Height="23" Margin="160,53,4,0" TextWrapping="Wrap" Text="16969" VerticalAlignment="Top" Width="60"/>
+                                </Grid>
+                            </GroupBox>
                         </Grid>
-                    </GroupBox>
-                    <GroupBox x:Name="groupboxSettings" Header="Limits" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top">
-                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-                            <Label x:Name="labelMinDelayBetweenSnipes" Content="Min Delay Between Snipes" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxMinDelayBetweenSnipes" HorizontalAlignment="Left" Height="23" Margin="175,9,10,0" TextWrapping="Wrap" Text="6000" VerticalAlignment="Top" Width="60"/>
-                            <Label x:Name="labelDelaySnipePokemon" Content="Delay Snipe Pokemon" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxDelaySnipePokemon" HorizontalAlignment="Left" Height="23" Margin="175,34,10,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="60"/>
-                            <Label x:Name="labelMinPokeyballsToSnipe" Content="Min Pokeballs To Snipe" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxMinPokeballsToSnipe" HorizontalAlignment="Left" Height="23" Margin="175,60,10,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="60"/>
-                            <Label x:Name="labelMinPokeballsWhileSnipe" Content="Min Pokeballs While Snipe" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxMinPokeballsWhileSnipe" HorizontalAlignment="Left" Height="23" Margin="175,86,10,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="10,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Label x:Name="labelPokemonToSnipeLocations" Content="Locations" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <ListView x:Name="listviewPokemonToSnipe" Margin="0,27,0,0" Width="500" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                <ListView.View>
+                                    <GridView x:Name="gridviewPokemonToSnipe">
+                                        <GridViewColumn x:Name="gridviewPokemonToSnipeLongitude" Header="Longitude" Width="100"/>
+                                        <GridViewColumn x:Name="gridviewPokemonToSnipeLattitude" Header="Lattitude Min CP" Width="100"/>
+                                        <GridViewColumn x:Name="gridviewPokemonToSnipeLocationName" Header="Location Name" Width="300" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </Grid>
-                    </GroupBox>
-                    <GroupBox x:Name="groupboxLocationServer" Header="Location Server" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top">
-                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" >
-                            <CheckBox x:Name="checkboxUseSnipeLocationServer" Content="Use Snipe Location Server" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                            <Label x:Name="labelSnipeLocationServer" Content="Snipe Location Server" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxSnipeLocationServer" HorizontalAlignment="Left" Height="23" Margin="160,27,4,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="60"/>
-                            <Label x:Name="labelSnipeLocationServerPort" Content="Snipe Location Server Port" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxSnipeLocationServerPort" HorizontalAlignment="Left" Height="23" Margin="160,53,4,0" TextWrapping="Wrap" Text="16969" VerticalAlignment="Top" Width="60"/>
+                        <Grid Grid.Column="1" Margin="5,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Label x:Name="labelPokemonToSnipe" Content="Pokemon to Snipe" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="textboxPokemonToSnipe" HorizontalAlignment="Stretch" Margin="0,27,0,0" TextWrapping="Wrap" Text="User edits list of pokemons to snipe here" VerticalAlignment="Stretch"/>
                         </Grid>
-                    </GroupBox>
-                    <Label x:Name="labelPokemonToSnipeLocations" Content="Locations" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-                    <ListView x:Name="listviewPokemonToSnipe" Height="349" Margin="10,147,259,0" Width="500" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListView.View>
-                            <GridView x:Name="gridviewPokemonToSnipe">
-                                <GridViewColumn x:Name="gridviewPokemonToSnipeLongitude" Header="Longitude" Width="100"/>
-                                <GridViewColumn x:Name="gridviewPokemonToSnipeLattitude" Header="Lattitude Min CP" Width="100"/>
-                                <GridViewColumn x:Name="gridviewPokemonToSnipeLocationName" Header="Location Name" Width="300" />
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <Label x:Name="labelPokemonToSnipe" Content="Pokemon to Snipe" HorizontalAlignment="Left" Margin="515,125,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textboxPokemonToSnipe" HorizontalAlignment="Left" Height="349" Margin="515,147,0,0" TextWrapping="Wrap" Text="User edits list of pokemons to snipe here" VerticalAlignment="Top" Width="254"/>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Not to Catch Filter">
@@ -405,17 +431,17 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10">
+        <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10,0,10,5">
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,0">
                 <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
                 <Button x:Name="buttonContinue" Content="Continue" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False" />
                 <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False" />
             </Grid>
-            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,10,10,10">
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,0">
                 <Label x:Name="labelStatusRuntime" Content="Runtime" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label x:Name="labelStatusRuntimeData" Content="Runtimedata" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="100,0,0,0"/>
             </Grid>
-            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,10">
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0">
                 <Button x:Name="buttonApply" Content="Apply" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
                 <Button x:Name="buttonExit" Content="Exit" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
             </Grid>

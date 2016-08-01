@@ -41,6 +41,8 @@ namespace PoGo.PokeMobBot.GUI
             // Ideally we will create translation .json files for each control so that we translate the WiKi help section
             // into live mouseovers for every control.  That isn't very touch friendly so we will have to think about that.
             tooltipsInitialize();
+            initializeGlobalButtons();            
+
             enableControls(false);      // cycle the controls to synchronize everything
             enableControls(true);
         }
@@ -119,6 +121,20 @@ namespace PoGo.PokeMobBot.GUI
             gridSnipeFilter.IsEnabled = value;
             gridNotToCatchFilter.IsEnabled = value;
             gridTransferFilters.IsEnabled = value;
+            buttonApply.IsEnabled = value;
+            buttonExit.IsEnabled = value;
+            buttonStart.IsEnabled = value;
+            buttonContinue.IsEnabled = value;
+            buttonStop.IsEnabled = (value == false);
+        }
+
+        private void initializeGlobalButtons()
+        {
+            buttonStart.IsEnabled = true;
+            buttonStop.IsEnabled = false;
+            buttonContinue.IsEnabled = true;
+            buttonApply.IsEnabled = false;
+            buttonExit.IsEnabled = true;
         }
 
         private void buttonClick(object sender, RoutedEventArgs e)
@@ -140,19 +156,26 @@ namespace PoGo.PokeMobBot.GUI
             }
             else if (sender == buttonStart)
             {
-                buttonStart.IsEnabled = false;
-                buttonStop.IsEnabled = true;
-
                 // first disable the controls so that settings cannot be changed while running the main thread
                 enableControls(false);
+                //
+                // reset the longitude/latitued/altitude to the values from the .json files
                 // create the main thread.  Events will be crated as information is sent and received from the PoGo servers
                 //
                 // main(args,nargs) /* Yea, I know that isn't what will be called */
+            }
+            else if (sender == buttonContinue)
+            {
+                enableControls(false);
+                // same as buttonStart except do not reset the settings so that the bot starts from the longitude/latitude/altitude 
+                // that it was last at
+                // main(args,nargs) /* yea... bla bla bla */
             }
             else if (sender == buttonStop)
             {
                 buttonStop.IsEnabled = false;
                 buttonStart.IsEnabled = true;
+                buttonContinue.IsEnabled = true;
 
                 // kill the main thread.
                 // then enable the controls
