@@ -87,11 +87,11 @@
                             <ComboBoxItem Name="comboboxLanguage_zhtw" Content="zh_tw"/>
                         </ComboBox.Items>
                     </ComboBox>
-                    <Label x:Name="labelWebSocketPort" Content="Web Socket Port" HorizontalAlignment="Left" Margin="407,3,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="textboxWebSocketPort" HorizontalAlignment="Left" Height="23" Margin="667,7,0,0" Text="14251" VerticalAlignment="Top" Width="80"/>
-                    <Grid HorizontalAlignment="Left" Height="458" Margin="10,38,0,0" VerticalAlignment="Top" Width="360">
+                    <Label x:Name="labelWebSocketPort" Content="Web Socket Port" HorizontalAlignment="Left" Margin="412,3,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBox x:Name="textboxWebSocketPort" HorizontalAlignment="Left" Height="23" Margin="674,7,0,0" Text="14251" VerticalAlignment="Top" Width="80"/>
+                    <Grid HorizontalAlignment="Left" Height="458" Margin="10,38,0,0" VerticalAlignment="Top">
                         <Label x:Name="labelAltitued" Content="Altitude" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxAltitude" HorizontalAlignment="Left" Height="23" Margin="270,10,0,0" Text="10" VerticalAlignment="Top" Width="80"/>
+                        <TextBox x:Name="textboxAltitude" HorizontalAlignment="Left" Height="23" Margin="270,10,4,0" Text="10" VerticalAlignment="Top" Width="80"/>
                         <Label x:Name="labelLatitude" Content="Latitude" HorizontalAlignment="Left" Margin="11,32,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBox x:Name="textboxLatitude" HorizontalAlignment="Left" Height="23" Margin="270,36,0,0" Text="38.976226" VerticalAlignment="Top" Width="80"/>
                         <Label x:Name="labelLongitude" Content="Longitude" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -119,62 +119,59 @@
                         <Label x:Name="labelUseUltraBallAboveCp" Content="Use Ultra Ball Above CP" HorizontalAlignment="Left" Margin="11,344,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBox x:Name="textboxUseUltraBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,348,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
                         <CheckBox x:Name="checkboxUseEggIncubators" Content="Use Egg Incubators" HorizontalAlignment="Left" Margin="11,374,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <GroupBox x:Name="groupboxTransfer" Header="Transfers" HorizontalAlignment="Left" Margin="3,394,0,0" VerticalAlignment="Top">
+                        <GroupBox x:Name="groupboxTransfer" Header="Transfers" HorizontalAlignment="Left" Margin="3,394,0,0" VerticalAlignment="Top" Width="347">
                             <Grid HorizontalAlignment="Left" Height="38" Margin="0,0,0,0" VerticalAlignment="Top" Width="360">
                                 <CheckBox x:Name="checkboxTransferDuplicatePokemon" Content="Transfer Duplicate Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
                                 <CheckBox x:Name="checkboxPrioritizeIvOverCP" Content="Prioritize IV over CP" HorizontalAlignment="Left" Margin="8,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             </Grid>
                         </GroupBox>
-
-
-
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="458" Margin="396,38,0,0" VerticalAlignment="Top" Width="360">
-                        <GroupBox x:Name="groupboxEvolution" Header="Evolution" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" Margin="0,0,0,-12" VerticalAlignment="Top" Width="350" Height="92">
+                    <Grid HorizontalAlignment="Right" Height="458" Margin="0,38,0,0" VerticalAlignment="Top">
+                        <GroupBox x:Name="groupboxEvolution" Header="Evolution" HorizontalAlignment="Left" Margin="3,0,4,0" VerticalAlignment="Top">
+                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                                 <CheckBox x:Name="checkboxKeepPokemonsThatCanEvolve" Content="Keep Pokemons That Can Evolve" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                 <CheckBox x:Name="checkboxEvolveAllPokemonWithEnoughCandy" Content="Evolve All Pokemon With Enough Candy" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                 <CheckBox x:Name="checkboxEvolveAllPokemonAboveIv" Content="Evolve All Pokemon Above IV" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged" Checked="checkboxChanged" Unchecked="checkboxChanged"/>
                                 <Label x:Name="labelEvolveAboveIvValue" Content="Evolve Above IV Value" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxEvolveAboveIvValue" HorizontalAlignment="Left" Height="23" Margin="260,59,0,0" Text="90.0" VerticalAlignment="Top" Width="80"/>
+                                <TextBox x:Name="textboxEvolveAboveIvValue" HorizontalAlignment="Left" Height="23" Margin="260,59,4,4" Text="90.0" VerticalAlignment="Top" Width="80"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupboxAutoRenaming" Header="Auto Renaming" HorizontalAlignment="Left" Margin="3,107,0,0" VerticalAlignment="Top" Height="85">
-                            <Grid HorizontalAlignment="Left" Margin="0,0,0,-17" VerticalAlignment="Top" Width="350" Height="65">
+                        <GroupBox x:Name="groupboxAutoRenaming" Header="Auto Renaming" HorizontalAlignment="Left" Margin="3,109,0,0" VerticalAlignment="Top">
+                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                                 <CheckBox x:Name="checkboxRenamePokemon" Content="Rename Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
                                 <CheckBox x:Name="checkboxRenameAboveIv" Content="Rename Above Keep Min IV Percentage" HorizontalAlignment="Left" Margin="14,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                                 <Label x:Name="labelRenameTemplate" Content="Rename Template" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabled="False"/>
-                                <TextBox x:Name="textboxRenameTemplate" HorizontalAlignment="Left" Height="23" Margin="260,35,0,0" Text="{}{0}_{1}" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                                <TextBox x:Name="textboxRenameTemplate" HorizontalAlignment="Left" Height="23" Margin="260,35,4,4" Text="{}{0}_{1}" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox x:Name="groupBox3" Header="Lucky Eggs" HorizontalAlignment="Left" Margin="3,183,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="350" Height="47">
+                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                                 <CheckBox x:Name="checkboxUseLuckyEggsWhileEvolving" Content="Use Lucky Eggs While Evolving" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                <Label x:Name="labelUseLuckyEggsMinPokemonAmount" Content="Use Lucky Eggs Min Pokemon Amount" HorizontalAlignment="Left" Margin="10,15,0,-6" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxUseLuckyEggsMinPokemonAmount" HorizontalAlignment="Left" Height="23" Margin="260,19,0,-7" Text="30" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                                <Label x:Name="labelUseLuckyEggsMinPokemonAmount" Content="Use Lucky Eggs Min Pokemon Amount" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxUseLuckyEggsMinPokemonAmount" HorizontalAlignment="Left" Height="23" Margin="260,19,4,4" Text="30" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupGpxPathing" Header="GPX Pathing" HorizontalAlignment="Left" Margin="5,261,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Width="350">
+                        <GroupBox x:Name="groupGpxPathing" Header="GPX Pathing" HorizontalAlignment="Left" Margin="3,261,0,0" VerticalAlignment="Top">
+                            <Grid HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top">
                                 <CheckBox x:Name="checkboxUseGpxPathing" Content="Use Gpx Pathing" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
                                 <Label x:Name="labelGpxFile" Content="Gpx File Name" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
                                 <TextBox x:Name="textboxGpxFile" HorizontalAlignment="Left" Height="23" Margin="99,16,0,0" Text="" VerticalAlignment="Top" Width="215" IsEnabled="False"/>
-                                <Button x:Name="buttonGpxFilePicker" Content="..." HorizontalAlignment="Left" Margin="319,18,0,0" VerticalAlignment="Top" Width="18" IsEnabled="False" Click="buttonFilenamePicker_Click"/>
+                                <Button x:Name="buttonGpxFilePicker" Content="..." HorizontalAlignment="Left" Margin="322,18,4,0" VerticalAlignment="Top" Width="18" IsEnabled="False" Click="buttonFilenamePicker_Click"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupboxAuth" Header="Auth" HorizontalAlignment="Left" Margin="3,330,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Margin="0,0,-2,-1">
+                        <GroupBox x:Name="groupboxAuth" Header="Auth" HorizontalAlignment="Left" Margin="3,325,0,0" VerticalAlignment="Top">
+                            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                                 <Label x:Name="labelAuthType" Content="AuthType" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <ComboBox x:Name="comboboxAuthType" HorizontalAlignment="Left" Margin="267,3,0,0" VerticalAlignment="Top" Width="80" Height="23" SelectionChanged="comboboxSelectionChanged" FontWeight="Bold">
+                                <ComboBox x:Name="comboboxAuthType" HorizontalAlignment="Left" Margin="260,3,0,0" VerticalAlignment="Top" Width="80" Height="23" SelectionChanged="comboboxSelectionChanged" FontWeight="Bold">
                                     <ComboBoxItem x:Name="comboboxAuthType_Google" Content="Google" IsSelected="True"/>
                                     <ComboBoxItem x:Name="comboboxAuthType_Ptc" Content="PTC"/>
                                 </ComboBox>
                                 <Label x:Name="labelUsername" Content="Username" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxUsername" HorizontalAlignment="Left" Height="23" Margin="267,31,0,0" Text="0" VerticalAlignment="Top"  Width="80"/>
+                                <TextBox x:Name="textboxUsername" HorizontalAlignment="Left" Height="23" Margin="260,31,0,0" Text="0" VerticalAlignment="Top"  Width="80"/>
                                 <Label x:Name="labelPassword" Content="Password" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxPassword" HorizontalAlignment="Left" Margin="267,57,0,0" Height="23" VerticalAlignment="Top" FontWeight="Bold" Width="80"/>
+                                <TextBox x:Name="textboxPassword" HorizontalAlignment="Left" Margin="260,57,0,0" Height="23" VerticalAlignment="Top" FontWeight="Bold" Width="80"/>
                                 <Label x:Name="labelRefreshToken" Content="RefreshToken" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxRefreshToken" HorizontalAlignment="Left" Height="23" Margin="267,83,0,0" Text="0" VerticalAlignment="Top" Width="80"/>
+                                <TextBox x:Name="textboxRefreshToken" HorizontalAlignment="Left" Height="23" Margin="260,83,4,4" Text="0" VerticalAlignment="Top" Width="80"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -285,73 +282,77 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Recycle Filter">
-                <Grid x:Name="gridRecycleFilter" Background="white">
-                    <Grid HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="205">
-                        <Label x:Name="labelRecycleFilterUnknown" Content="Unknown" HorizontalAlignment="Left" Margin="2,6,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxRecycleFilterUnknown" HorizontalAlignment="Left" Height="23" Margin="95,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                <Grid x:Name="gridRecycleFilter" Background="white" Margin="0,4,0,-4">
+                    <Grid HorizontalAlignment="Left" Height="40" Margin="16,10,0,0" VerticalAlignment="Top">
+                        <Label x:Name="labelRecycleFilterUnknown" Content="Unknown" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+                        <TextBox x:Name="textboxRecycleFilterUnknown" HorizontalAlignment="Left" Height="23" Margin="175,8,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                     </Grid>
-                    <GroupBox x:Name="groupBoxRecycleFilterBalls" Header="Max To Keep" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="116" Width="157">
-                        <Grid HorizontalAlignment="Left" Height="99" VerticalAlignment="Top" Width="147" Margin="0,0,0,-5">
-                            <Label x:Name="labelRecycleFilterPokeBall" Content="Pokeballs" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterPokeball" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterGreatBall" Content="Potions" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="testRecycleFilterGreatBall" HorizontalAlignment="Left" Height="23" Margin="90,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterUltraBall" Content="Revives" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="testRecycleFilterUltraBall" HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBoxRecycleFilterBalls" Header="Max Items To Keep" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5" Height="141">
+                            <Label x:Name="labelRecycleFilterPokeBall" Content="Pokeballs" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="4,4,0,0"/>
+                            <TextBox x:Name="textboxRecycleFilterPokeball" HorizontalAlignment="Left" Height="23" Margin="175,8,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterGreatBall" Content="Potions" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="testRecycleFilterGreatBall" HorizontalAlignment="Left" Height="23" Margin="175,34,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterUltraBall" Content="Revives" HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="testRecycleFilterUltraBall" HorizontalAlignment="Left" Height="23" Margin="175,60,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBoxRecycleFilterIncense" Header="Incense" HorizontalAlignment="Left" Margin="197,50,0,0" VerticalAlignment="Top" Height="116" Width="157">
-                        <Grid HorizontalAlignment="Left" Height="99" Margin="0,0,-2,-5" VerticalAlignment="Top" Width="147">
-                            <Label x:Name="labelRecycleFilterIncenseOrdinary" Content="Ordinary" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncenseOrdinary" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncenseSpicy" Content="Spicy" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterInsenseSpicy" HorizontalAlignment="Left" Height="23" Margin="90,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncenseCool" Content="Cool" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncenseCool" HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncenseFloral" Content="Floral" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncenseFloral" HorizontalAlignment="Left" Height="23" Margin="90,70,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBoxRecycleFilterIncense" Header="Incense" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,5" VerticalAlignment="Top" Height="141">
+                            <Label x:Name="labelRecycleFilterIncenseOrdinary" Content="Ordinary" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="4,4,0,0"/>
+                            <TextBox x:Name="textboxRecycleFilterIncenseOrdinary" HorizontalAlignment="Left" Height="23" Margin="175,8,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterIncenseSpicy" Content="Spicy" HorizontalAlignment="Left" Margin="4,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterInsenseSpicy" HorizontalAlignment="Left" Height="23" Margin="175,34,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterIncenseCool" Content="Cool" HorizontalAlignment="Left" Margin="4,56,0,0" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterIncenseCool" HorizontalAlignment="Left" Height="23" Margin="175,60,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterIncenseFloral" Content="Floral" HorizontalAlignment="Left" Margin="4,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterIncenseFloral" HorizontalAlignment="Left" Height="23" Margin="175,86,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBoxRecycleFilterBerries" Header="Berries" HorizontalAlignment="Left" Margin="387,50,0,0" VerticalAlignment="Top" Height="134" Width="157">
-                        <Grid HorizontalAlignment="Left" Height="116" Margin="0,0,-2,-5" VerticalAlignment="Top" Width="147">
-                            <Label x:Name="labelRecycleFilterRazzBerry" Content="Razz" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterRazzBerry" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterBlukBerry" Content="Bluk" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterBlukBerry" HorizontalAlignment="Left" Height="23" Margin="90,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterNanaBerry" Content="Nana" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterNanaBerry" HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterWeparBerry" Content="Wepar" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterWeparBerry" HorizontalAlignment="Left" Height="23" Margin="90,70,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterPinapBerry" Content="Pinap" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterPinapBerry" HorizontalAlignment="Left" Height="23" Margin="90,90,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBoxRecycleFilterBerries" Header="Berries" HorizontalAlignment="Right" Margin="0,50,10,0" VerticalAlignment="Top" >
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,5" VerticalAlignment="Top" Height="141">
+                            <Label x:Name="labelRecycleFilterRazzBerry" Content="Razz" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterRazzBerry" HorizontalAlignment="Left" Height="23" Margin="175,8,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterBlukBerry" Content="Bluk" HorizontalAlignment="Left" Margin="4,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterBlukBerry" HorizontalAlignment="Left" Height="23" Margin="175,34,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterNanaBerry" Content="Nana" HorizontalAlignment="Left" Margin="4,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterNanaBerry" HorizontalAlignment="Left" Height="23" Margin="175,60,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterWeparBerry" Content="Wepar" HorizontalAlignment="Left" Margin="4,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterWeparBerry" HorizontalAlignment="Left" Height="23" Margin="175,86,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterPinapBerry" Content="Pinap" HorizontalAlignment="Left" Margin="4,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterPinapBerry" HorizontalAlignment="Left" Height="23" Margin="175,112,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox" Header="Miscelanneous" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Height="297" Width="746">
-                        <Grid HorizontalAlignment="Left" Height="287" Margin="0,0,-2,-12" VerticalAlignment="Top" Width="736">
-                            <Label x:Name="labelRecycleFilterRevive" Content="Revive" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterRevive" HorizontalAlignment="Left" Height="23" Margin="175,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterMaxRevive" Content="Max Revive" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterMaxRevive" HorizontalAlignment="Left" Height="23" Margin="175,35,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterLuckyEgg" Content="Lucky Egg" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterLuckyEgg" HorizontalAlignment="Left" Height="23" Margin="175,60,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterTroyDisk" Content="Troy Disk" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterTroyDisk" HorizontalAlignment="Left" Height="23" Margin="175,85,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterXAttack" Content="X Attack" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterXAttack" HorizontalAlignment="Left" Height="23" Margin="175,110,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterXDefense" Content="X Defense" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterXDefense" HorizontalAlignment="Left" Height="23" Margin="175,135,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterXMiracle" Content="X Miracle" HorizontalAlignment="Left" Margin="9,156,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterXMiracle" HorizontalAlignment="Left" Height="23" Margin="175,160,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterSpecialCamera" Content="Special Camera" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterSpecialCamera" HorizontalAlignment="Left" Height="23" Margin="175,185,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterPokemonStorageUpgrade" Content="Pokemon Storage Upgrade" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterPokemonStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="175,210,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterItemStorageUpgrade" Content="Item Storage Upgrade" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterItemStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="175,235,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncubatorBasic" Content="Incubator Basic" HorizontalAlignment="Left" Margin="250,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncubatorBasic" HorizontalAlignment="Left" Height="23" Margin="415,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncubatorBasicUnlimited" Content="Incubator Unlimited" HorizontalAlignment="Left" Margin="250,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncubatorBasicUlimited" HorizontalAlignment="Left" Height="23" Margin="415,35,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBox" Header="Miscelanneous" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Height="262" Width="746">
+                        <Grid >
+                            <Grid HorizontalAlignment="Left" Height="240" Margin="0,0,0,0" VerticalAlignment="Top">
+                                <Label x:Name="labelRecycleFilterRevive" Content="Revive" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterRevive" HorizontalAlignment="Left" Height="23" Margin="175,8,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterMaxRevive" Content="Max Revive" HorizontalAlignment="Left" Margin="4,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterMaxRevive" HorizontalAlignment="Left" Height="23" Margin="175,34,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterLuckyEgg" Content="Lucky Egg" HorizontalAlignment="Left" Margin="4,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterLuckyEgg" HorizontalAlignment="Left" Height="23" Margin="175,60,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterTroyDisk" Content="Troy Disk" HorizontalAlignment="Left" Margin="4,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterTroyDisk" HorizontalAlignment="Left" Height="23" Margin="175,86,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterXAttack" Content="X Attack" HorizontalAlignment="Left" Margin="4,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterXAttack" HorizontalAlignment="Left" Height="23" Margin="175,112,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterXDefense" Content="X Defense" HorizontalAlignment="Left" Margin="4,134,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterXDefense" HorizontalAlignment="Left" Height="23" Margin="175,138,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterXMiracle" Content="X Miracle" HorizontalAlignment="Left" Margin="4,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterXMiracle" HorizontalAlignment="Left" Height="23" Margin="175,164,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterSpecialCamera" Content="Special Camera" HorizontalAlignment="Left" Margin="4,186,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterSpecialCamera" HorizontalAlignment="Left" Height="23" Margin="175,190,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            </Grid>
+                            <Grid HorizontalAlignment="Center" Height="240" Margin="0,0,0,0" VerticalAlignment="Top">
+                                <Label x:Name="labelRecycleFilterIncubatorBasic" Content="Incubator Basic" HorizontalAlignment="Left" Margin="4,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterIncubatorBasic" HorizontalAlignment="Left" Height="23" Margin="175,10,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterIncubatorBasicUnlimited" Content="Incubator Unlimited" HorizontalAlignment="Left" Margin="4,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterIncubatorBasicUlimited" HorizontalAlignment="Left" Height="23" Margin="175,35,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterPokemonStorageUpgrade" Content="Pokemon Storage Upgrade" HorizontalAlignment="Left" Margin="4,57,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterPokemonStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="175,61,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                                <Label x:Name="labelRecycleFilterItemStorageUpgrade" Content="Item Storage Upgrade" HorizontalAlignment="Left" Margin="4,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxRecycleFilterItemStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="175,86,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            </Grid>
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -397,24 +398,32 @@
             </TabItem>
             <TabItem Header="Snipe Filter">
                 <Grid x:Name="gridSnipeFilter" Background="white">
-                    <CheckBox x:Name="checkboxSnipeAtPokestops" Content="Snipe At Pokestops" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Unchecked="checkboxChanged" Checked="checkboxChanged" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                    <CheckBox x:Name="checkboxIgnoreUnknownIv" Content="Ignore Unknown IV" HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="checkboxUseTransferIvForSnipe" Content="Use Transfer IV For Snipe" HorizontalAlignment="Left" Margin="25,50,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="labelMinDelayBetweenSnipes" Content="Min Delay Between Snipes" HorizontalAlignment="Left" Margin="212,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="textboxMinDelayBetweenSnipes" HorizontalAlignment="Left" Height="23" Margin="462,9,0,0" TextWrapping="Wrap" Text="6000" VerticalAlignment="Top" Width="60"/>
-                    <Label x:Name="labelDelaySnipePokemon" Content="Delay Snipe Pokemon" HorizontalAlignment="Left" Margin="212,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="textboxDelaySnipePokemon" HorizontalAlignment="Left" Height="23" Margin="462,34,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
-                    <Label x:Name="labelMinPokeyballsToSnipe" Content="Min Pokeyballs To Snipe" HorizontalAlignment="Left" Margin="212,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="textboxMinPokeballsToSnipe" HorizontalAlignment="Left" Height="23" Margin="462,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
-                    <Label x:Name="labelMinPokeballsWhileSnipe" Content="Min Pokeballs While Snipe" HorizontalAlignment="Left" Margin="212,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="textboxMinPokeballsWhileSnipe" HorizontalAlignment="Left" Height="23" Margin="462,86,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
-                    <GroupBox x:Name="groupboxLocationServer" Header="Location Server" HorizontalAlignment="Left" Margin="538,0,0,0" VerticalAlignment="Top">
+                    <GroupBox x:Name="groupboxOptions" Header="Options" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="222">
+                            <CheckBox x:Name="checkboxSnipeAtPokestops" Content="Snipe At Pokestops" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Unchecked="checkboxChanged" Checked="checkboxChanged" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                            <CheckBox x:Name="checkboxIgnoreUnknownIv" Content="Ignore Unknown IV" HorizontalAlignment="Left" Margin="25,30,10,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="checkboxUseTransferIvForSnipe" Content="Use Transfer IV For Snipe" HorizontalAlignment="Left" Margin="25,50,10,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupboxSettings" Header="Limits" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                            <Label x:Name="labelMinDelayBetweenSnipes" Content="Min Delay Between Snipes" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxMinDelayBetweenSnipes" HorizontalAlignment="Left" Height="23" Margin="175,9,10,0" TextWrapping="Wrap" Text="6000" VerticalAlignment="Top" Width="60"/>
+                            <Label x:Name="labelDelaySnipePokemon" Content="Delay Snipe Pokemon" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxDelaySnipePokemon" HorizontalAlignment="Left" Height="23" Margin="175,34,10,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="60"/>
+                            <Label x:Name="labelMinPokeyballsToSnipe" Content="Min Pokeballs To Snipe" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxMinPokeballsToSnipe" HorizontalAlignment="Left" Height="23" Margin="175,60,10,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="60"/>
+                            <Label x:Name="labelMinPokeballsWhileSnipe" Content="Min Pokeballs While Snipe" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxMinPokeballsWhileSnipe" HorizontalAlignment="Left" Height="23" Margin="175,86,10,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupboxLocationServer" Header="Location Server" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top">
                         <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" >
                             <CheckBox x:Name="checkboxUseSnipeLocationServer" Content="Use Snipe Location Server" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
                             <Label x:Name="labelSnipeLocationServer" Content="Snipe Location Server" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxSnipeLocationServer" HorizontalAlignment="Left" Height="23" Margin="160,27,0,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="60"/>
+                            <TextBox x:Name="textboxSnipeLocationServer" HorizontalAlignment="Left" Height="23" Margin="160,27,4,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="60"/>
                             <Label x:Name="labelSnipeLocationServerPort" Content="Snipe Location Server Port" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxSnipeLocationServerPort" HorizontalAlignment="Left" Height="23" Margin="160,53,0,0" TextWrapping="Wrap" Text="16969" VerticalAlignment="Top" Width="60"/>
+                            <TextBox x:Name="textboxSnipeLocationServerPort" HorizontalAlignment="Left" Height="23" Margin="160,53,4,0" TextWrapping="Wrap" Text="16969" VerticalAlignment="Top" Width="60"/>
                         </Grid>
                     </GroupBox>
                     <Label x:Name="labelPokemonToSnipeLocations" Content="Locations" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>

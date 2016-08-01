@@ -32,7 +32,16 @@ namespace PoGo.PokeMobBot.GUI
             textblockStatusLog.Text = "Application Started: " + DateTime.Now.ToString();
             labelStatusRuntimeData.Content = "00:00:00.00";
             initialized = true;
-            enableControls(false);      // call stop once so that all of the enable/disable states sync with the default checkboxes
+
+            // call main CLI settings class to load config.json and auth.json
+            //
+            // Once integrated with main CLI source, the loading of the objects in the settings class should fire the events
+            // so that the MVVM triggers listeners to update the GUI
+            //
+            // Ideally we will create translation .json files for each control so that we translate the WiKi help section
+            // into live mouseovers for every control.  That isn't very touch friendly so we will have to think about that.
+
+            enableControls(false);      // cycle the controls to synchronize everything
             enableControls(true);
         }
 
@@ -86,26 +95,37 @@ namespace PoGo.PokeMobBot.GUI
         {
             if (sender == buttonExit)
             {
+                // need to check to see if any of the settings have changed.  If they have, present a dialog asking to save the settings
+
+                // for now we will just ask for confirmation to exit
                 MessageBoxResult messageboxExit = MessageBox.Show("Are you sure?", "Question", MessageBoxButton.OKCancel);
                 if (messageboxExit == MessageBoxResult.OK)
                     Application.Current.Shutdown();
             }
             else if (sender == buttonApply)
             {
-
+                // the settings in memory will be updated as they are changed by the user
+                // the user will need to hit the apply button to cause the settings to be 
+                // written back out to disk in the config.json and auth.json files
             }
             else if (sender == buttonStart)
             {
                 buttonStart.IsEnabled = false;
                 buttonStop.IsEnabled = true;
 
+                // first disable the controls so that settings cannot be changed while running the main thread
                 enableControls(false);
+                // create the main thread.  Events will be crated as information is sent and received from the PoGo servers
+                //
+                // main(args,nargs) /* Yea, I know that isn't what will be called */
             }
             else if (sender == buttonStop)
             {
                 buttonStop.IsEnabled = false;
                 buttonStart.IsEnabled = true;
 
+                // kill the main thread.
+                // then enable the controls
                 enableControls(true);
             }
         }
