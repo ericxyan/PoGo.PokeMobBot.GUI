@@ -40,9 +40,39 @@ namespace PoGo.PokeMobBot.GUI
             //
             // Ideally we will create translation .json files for each control so that we translate the WiKi help section
             // into live mouseovers for every control.  That isn't very touch friendly so we will have to think about that.
-
+            tooltipsInitialize();
             enableControls(false);      // cycle the controls to synchronize everything
             enableControls(true);
+        }
+
+        private void tooltipsInitialize()
+        {
+            // we are going to do this in code so that we are prepared for a change to another language through translations
+            // putting these in statically just to demonstrate the idea
+            buttonStart.ToolTip = "Start the Pokemon Bot from the location in the Settings tab";
+            buttonContinue.ToolTip = "Start at the Longitude/Latitude where the Pokemon Bot previously stopped";
+            buttonStop.ToolTip = "Stop/Pause the Pokemon Bot";
+            buttonApply.ToolTip = "Apply setting changes to persistent configuration .json files";
+            buttonExit.ToolTip = "Exit the Pokemon Bot";
+
+            labelStatusLevel.ToolTip = "Current level of the logged in player";
+            labelStatusXP.ToolTip = "Current experience level";
+            labelStatusXPNextLevel.ToolTip = "Experience needed to get to the next level";
+            labelStatusEXP.ToolTip = "";
+            labelStatusPH.ToolTip = "";
+            labelStatusStardust.ToolTip = "Current accumulated stardust";
+            labelStatusTransferred.ToolTip = "Number of Pokemons transferred since starting";
+            labelStatusRecycled.ToolTip = "Number of items (Potions, Pokeballs, etc.) that have been deleted";
+            labelStatusLongitude.ToolTip = "Current Longitude when the application has started";
+            labelStatusLatitude.ToolTip = "Current Lattitude when the application is running";
+
+            labelAltitued.ToolTip = "Altitude that the bot starts at. Not advised to change this from the default as Niantic does not check altitude.";
+            labelLatitude.ToolTip = "Latitude that the bot starts at. Must be between -90 and 90 values.";
+            labelLongitude.ToolTip = "Longitude that the bot starts at. Must be between -180 and 180 values";
+            labelWalkingSpeedInKilometerPerHour.ToolTip = "Walking speed in kilometers per hour.  Recomment setting to something that a human could perform (i.e. between 5 and 20)";
+            labelMaxTravelDistanceInMeters.ToolTip = "How far the bot will travel in a radius from the original default location (in meters)";
+
+
         }
 
         private void radiobuttonChanged(object sender, RoutedEventArgs e)
