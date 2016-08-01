@@ -7,17 +7,21 @@
         mc:Ignorable="d"
         Title="PoGo.PokeMobBot" Height="600" Width="800">
     <Grid>
-        <TabControl x:Name="tabSetup" HorizontalAlignment="Left" Height="524" Margin="5,0,0,0" VerticalAlignment="Top" Width="775">
+        <TabControl x:Name="tabSetup" HorizontalAlignment="Stretch" Height="524" Margin="0,0,0,0" VerticalAlignment="Top" >
             <TabItem Header="Status">
                 <Grid Background="white">
-                    <Grid Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="353">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                         <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
                             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <TextBlock x:Name="textblockStatusLog" TextWrapping="NoWrap" Margin="0,0,0,0" Width="752" Text="Placeholder...The raw log from the CLI will scroll in this window"/>
                             </StackPanel>
                         </ScrollViewer>
                     </Grid>
-                    <Grid Margin="0,240,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                    <Grid Grid.Row="1" Margin="0,240,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                         <Grid Margin="0,0,0,30" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                             <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom">
                                 <Label x:Name="labelStatusLevel" Content="Level" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
