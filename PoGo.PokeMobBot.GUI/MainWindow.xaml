@@ -285,48 +285,48 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Recycle Filter">
-                <Grid x:Name="gridRecycleFilter" Background="white">
+                <Grid x:Name="gridRecycleFilter" Background="white" Margin="0,4,0,-4">
                     <Grid HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="205">
                         <Label x:Name="labelRecycleFilterUnknown" Content="Unknown" HorizontalAlignment="Left" Margin="2,6,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxRecycleFilterUnknown" HorizontalAlignment="Left" Height="23" Margin="95,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                        <TextBox x:Name="textboxRecycleFilterUnknown" HorizontalAlignment="Left" Height="23" Margin="89,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                     </Grid>
-                    <GroupBox x:Name="groupBoxRecycleFilterBalls" Header="Max To Keep" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="116" Width="157">
-                        <Grid HorizontalAlignment="Left" Height="99" VerticalAlignment="Top" Width="147" Margin="0,0,0,-5">
-                            <Label x:Name="labelRecycleFilterPokeBall" Content="Pokeballs" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterPokeball" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterGreatBall" Content="Potions" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="testRecycleFilterGreatBall" HorizontalAlignment="Left" Height="23" Margin="90,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterUltraBall" Content="Revives" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="testRecycleFilterUltraBall" HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBoxRecycleFilterBalls" Header="Max Items To Keep" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5" Height="141">
+                            <Label x:Name="labelRecycleFilterPokeBall" Content="Pokeballs" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterPokeball" HorizontalAlignment="Left" Height="23" Margin="83,4,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterGreatBall" Content="Potions" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="testRecycleFilterGreatBall" HorizontalAlignment="Left" Height="23" Margin="83,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterUltraBall" Content="Revives" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="testRecycleFilterUltraBall" HorizontalAlignment="Left" Height="23" Margin="83,56,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBoxRecycleFilterIncense" Header="Incense" HorizontalAlignment="Left" Margin="197,50,0,0" VerticalAlignment="Top" Height="116" Width="157">
-                        <Grid HorizontalAlignment="Left" Height="99" Margin="0,0,-2,-5" VerticalAlignment="Top" Width="147">
-                            <Label x:Name="labelRecycleFilterIncenseOrdinary" Content="Ordinary" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncenseOrdinary" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncenseSpicy" Content="Spicy" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterInsenseSpicy" HorizontalAlignment="Left" Height="23" Margin="90,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncenseCool" Content="Cool" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncenseCool" HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterIncenseFloral" Content="Floral" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterIncenseFloral" HorizontalAlignment="Left" Height="23" Margin="90,70,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBoxRecycleFilterIncense" Header="Incense" HorizontalAlignment="Left" Margin="160,50,0,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,5" VerticalAlignment="Top" Height="141">
+                            <Label x:Name="labelRecycleFilterIncenseOrdinary" Content="Ordinary" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterIncenseOrdinary" HorizontalAlignment="Left" Height="23" Margin="84,4,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterIncenseSpicy" Content="Spicy" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterInsenseSpicy" HorizontalAlignment="Left" Height="23" Margin="84,31,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterIncenseCool" Content="Cool" HorizontalAlignment="Left" Margin="0,53,0,20" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterIncenseCool" HorizontalAlignment="Left" Height="23" Margin="84,57,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterIncenseFloral" Content="Floral" HorizontalAlignment="Left" Margin="0,81,0,-8" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterIncenseFloral" HorizontalAlignment="Left" Height="23" Margin="84,84,0,-8" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBoxRecycleFilterBerries" Header="Berries" HorizontalAlignment="Left" Margin="387,50,0,0" VerticalAlignment="Top" Height="134" Width="157">
-                        <Grid HorizontalAlignment="Left" Height="116" Margin="0,0,-2,-5" VerticalAlignment="Top" Width="147">
-                            <Label x:Name="labelRecycleFilterRazzBerry" Content="Razz" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterRazzBerry" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterBlukBerry" Content="Bluk" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterBlukBerry" HorizontalAlignment="Left" Height="23" Margin="90,30,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterNanaBerry" Content="Nana" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterNanaBerry" HorizontalAlignment="Left" Height="23" Margin="90,50,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterWeparBerry" Content="Wepar" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterWeparBerry" HorizontalAlignment="Left" Height="23" Margin="90,70,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterPinapBerry" Content="Pinap" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterPinapBerry" HorizontalAlignment="Left" Height="23" Margin="90,90,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                    <GroupBox x:Name="groupBoxRecycleFilterBerries" Header="Berries" HorizontalAlignment="Left" Margin="311,50,0,0" VerticalAlignment="Top" >
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,5" VerticalAlignment="Top" Height="141">
+                            <Label x:Name="labelRecycleFilterRazzBerry" Content="Razz" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterRazzBerry" HorizontalAlignment="Left" Height="23" Margin="84,8,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterBlukBerry" Content="Bluk" HorizontalAlignment="Left" Margin="4,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterBlukBerry" HorizontalAlignment="Left" Height="23" Margin="84,34,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterNanaBerry" Content="Nana" HorizontalAlignment="Left" Margin="4,56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterNanaBerry" HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterWeparBerry" Content="Wepar" HorizontalAlignment="Left" Margin="4,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterWeparBerry" HorizontalAlignment="Left" Height="23" Margin="84,86,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterPinapBerry" Content="Pinap" HorizontalAlignment="Left" Margin="4,108,0,-18" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterPinapBerry" HorizontalAlignment="Left" Height="23" Margin="84,112,0,-19" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox" Header="Miscelanneous" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Height="297" Width="746">
+                    <GroupBox x:Name="groupBox" Header="Miscelanneous" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Height="262" Width="746">
                         <Grid HorizontalAlignment="Left" Height="287" Margin="0,0,-2,-12" VerticalAlignment="Top" Width="736">
                             <Label x:Name="labelRecycleFilterRevive" Content="Revive" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <TextBox x:Name="textboxRecycleFilterRevive" HorizontalAlignment="Left" Height="23" Margin="175,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
@@ -344,10 +344,10 @@
                             <TextBox x:Name="textboxRecycleFilterXMiracle" HorizontalAlignment="Left" Height="23" Margin="175,160,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                             <Label x:Name="labelRecycleFilterSpecialCamera" Content="Special Camera" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <TextBox x:Name="textboxRecycleFilterSpecialCamera" HorizontalAlignment="Left" Height="23" Margin="175,185,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterPokemonStorageUpgrade" Content="Pokemon Storage Upgrade" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterPokemonStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="175,210,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
-                            <Label x:Name="labelRecycleFilterItemStorageUpgrade" Content="Item Storage Upgrade" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <TextBox x:Name="textboxRecycleFilterItemStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="175,235,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterPokemonStorageUpgrade" Content="Pokemon Storage Upgrade" HorizontalAlignment="Left" Margin="250,57,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterPokemonStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="415,61,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
+                            <Label x:Name="labelRecycleFilterItemStorageUpgrade" Content="Item Storage Upgrade" HorizontalAlignment="Left" Margin="250,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxRecycleFilterItemStorageUpgrade" HorizontalAlignment="Left" Height="23" Margin="415,86,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                             <Label x:Name="labelRecycleFilterIncubatorBasic" Content="Incubator Basic" HorizontalAlignment="Left" Margin="250,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <TextBox x:Name="textboxRecycleFilterIncubatorBasic" HorizontalAlignment="Left" Height="23" Margin="415,10,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                             <Label x:Name="labelRecycleFilterIncubatorBasicUnlimited" Content="Incubator Unlimited" HorizontalAlignment="Left" Margin="250,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
