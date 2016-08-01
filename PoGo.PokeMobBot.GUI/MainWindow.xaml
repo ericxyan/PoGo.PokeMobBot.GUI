@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoGo.PokeMobBot.GUI"
         mc:Ignorable="d"
-        Title="PoGo.PokeMobBot" Height="600" Width="800" MaxHeight="600">
+        Title="PoGo.PokeMobBot" Height="600" Width="800">
     <Grid>
-        <TabControl x:Name="tabSetup" HorizontalAlignment="Stretch" Height="524" Margin="0,0,0,0" VerticalAlignment="Top" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" x:Name="tabSetup" HorizontalAlignment="Stretch" Height="524" Margin="0,0,0,0" VerticalAlignment="Top" >
             <TabItem Header="Status">
                 <Grid Background="white">
                     <Grid.RowDefinitions>
@@ -217,7 +221,7 @@
             </TabItem>
             <TabItem Header="More Setup">
                 <Grid x:Name="gridMoreSetup" Background="white">
-                    <Grid HorizontalAlignment="Left" Height="490" Margin="10,6,0,0" VerticalAlignment="Top" Width="360">
+                    <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="10,0,0,0">
                         <Label x:Name="labelMaxSpawnLocationOffset" Content="Max Spawn Location Offset" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBox x:Name="textboxMaxSpawnLocationOffset" HorizontalAlignment="Left" Height="23" Margin="270,10,0,0" Text="10" VerticalAlignment="Top" Width="80"/>
                         <Label x:Name="labelLevelUpByCPorIV" Content="Level Up By CP or IV" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -229,102 +233,22 @@
                         <TextBox x:Name="textboxUpgradePokemonCpMinimum" HorizontalAlignment="Left" Height="23" Margin="270,66,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
                         <Label x:Name="labelUpgradePokemonIvMinimum" Content="Upgrade Pokemon IV Min" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBox x:Name="textboxUpgradePokemonIvMinimum" HorizontalAlignment="Left" Height="23" Margin="270,94,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
-
-                        <Label x:Name="labelPlaceholder1" Content="Placeholder" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder2" HorizontalAlignment="Left" Height="23" Margin="270,205,0,0" Text="90.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder2" Content="Placeholder" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder3" HorizontalAlignment="Left" Height="23" Margin="270,233,0,0" Text="90.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder3" Content="Placeholder" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder4" HorizontalAlignment="Left" Margin="270,261,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder4_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder4_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder5" Content="Placeholder" HorizontalAlignment="Left" Margin="10,285,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder5" HorizontalAlignment="Left" Height="23" Margin="270,289,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder6" Content="Placeholder" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder6" HorizontalAlignment="Left" Margin="270,317,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder6_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder6_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder7" Content="Placeholder" HorizontalAlignment="Left" Margin="10,341,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder7" HorizontalAlignment="Left" Margin="270,345,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder8_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder8_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder9" Content="Placeholder" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder9" HorizontalAlignment="Left" Margin="270,373,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder9_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder9_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder0" Content="Placeholder" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder0" HorizontalAlignment="Left" Height="23" Margin="270,400,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder0_Copy" Content="Placeholder" HorizontalAlignment="Left" Margin="10,425,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder0_Copy" HorizontalAlignment="Left" Height="23" Margin="270,428,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder0_Copy1" Content="Placeholder" HorizontalAlignment="Left" Margin="11,452,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder0_Copy1" HorizontalAlignment="Left" Height="23" Margin="270,456,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="490" Margin="404,10,0,-4" VerticalAlignment="Top" Width="360">
-                        <Label x:Name="labelPlaceholder10" Content="Placeholder" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder10" HorizontalAlignment="Left" Height="23" Margin="270,10,0,0" Text="10" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder11" Content="Placeholder" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder11" HorizontalAlignment="Left" Margin="270,38,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder11_IV" Content="iv"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder11_CP" Content="cp" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder12" Content="Placeholder" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder12" HorizontalAlignment="Left" Height="23" Margin="270,66,0,0" Text="1000" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder13" Content="Placeholder" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder13" HorizontalAlignment="Left" Height="23" Margin="270,94,0,0" Text="95.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder14" Content="Placeholder" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder14" HorizontalAlignment="Left" Height="23" Margin="270,122,0,0" Text="750" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder15" Content="Placeholder" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder15" HorizontalAlignment="Left" Height="23" Margin="270,150,0,0" Text="1500" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder16" Content="Placeholder" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder16" HorizontalAlignment="Left" Height="23" Margin="270,178,0,0" Text="1000" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder17" Content="Placeholder" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder17" HorizontalAlignment="Left" Height="23" Margin="270,205,0,0" Text="90.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder18" Content="Placeholder" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder18" HorizontalAlignment="Left" Height="23" Margin="270,233,0,0" Text="90.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder19" Content="Placeholder" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder19" HorizontalAlignment="Left" Margin="270,261,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder19_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder19_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder20" Content="Placeholder" HorizontalAlignment="Left" Margin="10,285,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder20" HorizontalAlignment="Left" Height="23" Margin="270,289,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder21" Content="Placeholder" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder22" HorizontalAlignment="Left" Margin="270,317,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder22_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder22_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder23" Content="Placeholder" HorizontalAlignment="Left" Margin="10,341,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder23" HorizontalAlignment="Left" Margin="270,345,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder23_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder23_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder24" Content="Placeholder" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <ComboBox x:Name="comboboxPlaceholder24" HorizontalAlignment="Left" Margin="270,373,0,0" VerticalAlignment="Top" Width="80" Height="23" Visibility="Hidden">
-                            <ComboBoxItem x:Name="comboboxPlaceholder24_True" Content="True"/>
-                            <ComboBoxItem x:Name="comboboxPlaceholder24_False" Content="False" IsSelected="True"/>
-                        </ComboBox>
-                        <Label x:Name="labelPlaceholder25" Content="Placeholder" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder25" HorizontalAlignment="Left" Height="23" Margin="270,400,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder26" Content="Placeholder" HorizontalAlignment="Left" Margin="10,425,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder26" HorizontalAlignment="Left" Height="23" Margin="270,428,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
-                        <Label x:Name="labelPlaceholder27" Content="Placeholder" HorizontalAlignment="Left" Margin="11,452,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textboxPlaceholder27" HorizontalAlignment="Left" Height="23" Margin="270,456,0,0" Text="30" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
+                    <Grid HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top">
+                        <Label x:Name="labelPlaceholderX" Content="Upgrade Pokemon IV Min" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
+                        <TextBox x:Name="textPlaceholderX" HorizontalAlignment="Left" Height="23" Margin="270,94,0,0" Text="95.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
                     </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Recycle Filter">
-                <Grid x:Name="gridRecycleFilter" Background="white" Margin="0,4,0,-4">
+                <Grid x:Name="gridRecycleFilter" Background="white" Margin="0,4,0,0">
                     <Grid HorizontalAlignment="Left" Height="40" Margin="16,10,0,0" VerticalAlignment="Top">
                         <Label x:Name="labelRecycleFilterUnknown" Content="Unknown" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
                         <TextBox x:Name="textboxRecycleFilterUnknown" HorizontalAlignment="Left" Height="23" Margin="175,8,0,0" Text="0" VerticalAlignment="Top" Width="50"/>
                     </Grid>
                     <GroupBox x:Name="groupBoxRecycleFilterBalls" Header="Max Items To Keep" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top">
                         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,5" Height="141">
-                            <Label x:Name="labelRecycleFilterPokeBall" Content="Pokeballs" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="4,4,0,0"/>
+                            <Label x:Name="labelRecycleFilterPokeBall" Content="Pokeballs" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="0,4,0,0"/>
                             <TextBox x:Name="textboxRecycleFilterPokeball" HorizontalAlignment="Left" Height="23" Margin="175,8,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
                             <Label x:Name="labelRecycleFilterGreatBall" Content="Potions" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <TextBox x:Name="testRecycleFilterGreatBall" HorizontalAlignment="Left" Height="23" Margin="175,34,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
@@ -358,7 +282,7 @@
                             <TextBox x:Name="textboxRecycleFilterPinapBerry" HorizontalAlignment="Left" Height="23" Margin="175,112,4,0" Text="0" VerticalAlignment="Top" Width="50"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox" Header="Miscelanneous" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Height="262" Width="746">
+                    <GroupBox x:Name="groupBox" Header="Miscelanneous" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,224,10,0">
                         <Grid >
                             <Grid HorizontalAlignment="Left" Height="240" Margin="0,0,0,0" VerticalAlignment="Top">
                                 <Label x:Name="labelRecycleFilterRevive" Content="Revive" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -481,17 +405,19 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10">
-            <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
-            <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False"/>
-        </Grid>
-        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,10,10,10">
-            <Label x:Name="labelStatusRuntime" Content="Runtime" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="labelStatusRuntimeData" Content="Runtimedata" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="100,0,0,0"/>
-        </Grid>
-        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,10">
-            <Button x:Name="buttonApply" Content="Apply" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
-            <Button x:Name="buttonExit" Content="Exit" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+        <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10">
+                <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+                <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False"/>
+            </Grid>
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,10,10,10">
+                <Label x:Name="labelStatusRuntime" Content="Runtime" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="labelStatusRuntimeData" Content="Runtimedata" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="100,0,0,0"/>
+            </Grid>
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,10">
+                <Button x:Name="buttonApply" Content="Apply" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+                <Button x:Name="buttonExit" Content="Exit" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
