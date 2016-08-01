@@ -63,7 +63,7 @@
             </TabItem>
             <TabItem Header="Pokemons">
                 <Grid Background="white">
-                    <ListView x:Name="listviewPokemons" Height="496" Margin="0,0,0,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                    <ListView x:Name="listviewPokemons" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
                         <ListView.View>
                             <GridView x:Name="gridviewPokemons">
                                 <GridViewColumn x:Name="gridviewPokemonsName" Header="Name" Width="200"/>
@@ -79,125 +79,140 @@
             </TabItem>
             <TabItem Header="Setup">
                 <Grid x:Name="gridSetup" Background="white">
-                    <CheckBox x:Name="checkboxUpdateWarning" Content="Update Warning" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Separator HorizontalAlignment="Left" Height="5" Margin="10,33,0,0" VerticalAlignment="Top" Width="746"/>
-                    <Label x:Name="labelLanguage" Content="Language" HorizontalAlignment="Left" Margin="227,2,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <ComboBox x:Name="comboboxLanguage" HorizontalAlignment="Left" Margin="317,6,0,0" VerticalAlignment="Top" Width="40">
-                        <ComboBox.Items>
-                            <ComboBoxItem Name="comboboxLanguage_da" Content="da"/>
-                            <ComboBoxItem Name="comboboxLanguage_de" Content="de"/>
-                            <ComboBoxItem Name="comboboxLanguage_en" Content="en" IsSelected="True"/>
-                            <ComboBoxItem Name="comboboxLanguage_es" Content="es"/>
-                            <ComboBoxItem Name="comboboxLanguage_et" Content="et"/>
-                            <ComboBoxItem Name="comboboxLanguage_fr" Content="fr"/>
-                            <ComboBoxItem Name="comboboxLanguage_gr" Content="gr"/>
-                            <ComboBoxItem Name="comboboxLanguage_id" Content="id"/>
-                            <ComboBoxItem Name="comboboxLanguage_it" Content="it"/>
-                            <ComboBoxItem Name="comboboxLanguage_nl" Content="nl"/>
-                            <ComboBoxItem Name="comboboxLanguage_no" Content="no"/>
-                            <ComboBoxItem Name="comboboxLanguage_pl" Content="pl"/>
-                            <ComboBoxItem Name="comboboxLanguage_ptbr" Content="pt-br"/>
-                            <ComboBoxItem Name="comboboxLanguage_ptpt" Content="pt-pt"/>
-                            <ComboBoxItem Name="comboboxLanguage_ru" Content="ru_RU"/>
-                            <ComboBoxItem Name="comboboxLanguage_sv" Content="sv"/>
-                            <ComboBoxItem Name="comboboxLanguage_th" Content="th"/>
-                            <ComboBoxItem Name="comboboxLanguage_tr" Content="tr"/>
-                            <ComboBoxItem Name="comboboxLanguage_ukua" Content="uk_UA"/>
-                            <ComboBoxItem Name="comboboxLanguage_zhcn" Content="zh_CN"/>
-                            <ComboBoxItem Name="comboboxLanguage_zhtw" Content="zh_tw"/>
-                        </ComboBox.Items>
-                    </ComboBox>
-                    <Label x:Name="labelWebSocketPort" Content="Web Socket Port" HorizontalAlignment="Left" Margin="412,3,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox x:Name="textboxWebSocketPort" HorizontalAlignment="Left" Height="23" Margin="674,7,0,0" Text="14251" VerticalAlignment="Top" Width="80"/>
-                    <Grid HorizontalAlignment="Left" Height="458" Margin="10,38,0,0" VerticalAlignment="Top">
-                        <Label x:Name="labelAltitued" Content="Altitude" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxAltitude" HorizontalAlignment="Left" Height="23" Margin="270,10,4,0" Text="10" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelLatitude" Content="Latitude" HorizontalAlignment="Left" Margin="11,32,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxLatitude" HorizontalAlignment="Left" Height="23" Margin="270,36,0,0" Text="38.976226" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelLongitude" Content="Longitude" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxLongitude" HorizontalAlignment="Left" Height="23" Margin="270,62,0,0" Text="-77.643218" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelDelayBetweenPokemonCatch" Content="Delay between catch" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxDelayBetweenPokemonCatch" HorizontalAlignment="Left" Height="23" Margin="270,88,0,0" Text="4000" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelDelayBetweenPlayerActions" Content="Delay Between Actions" HorizontalAlignment="Left" Margin="11,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxDelayBetweenPlayerActions" HorizontalAlignment="Left" Height="23" Margin="270,114,0,0" Text="5000" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelMaxTravelDistanceInMeters" Content="Max Travel Distance (m)" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxMaxTravelDistanceInMeters" HorizontalAlignment="Left" Height="23" Margin="270,140,0,0" Text="24000" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelWalkingSpeedInKilometerPerHour" Content="Walking Speed (km/hr)" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxWalkingSpeedInKilometerPerHour" HorizontalAlignment="Left" Height="23" Margin="270,166,0,0" Text="10.0" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelKeepMinCp" Content="Keep Min CP" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxKeepMinCp" HorizontalAlignment="Left" Height="23" Margin="270,192,0,0" Text="1250" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelKeepMinDuplicatePokemon" Content="Keep Min Duplicate Pokemon" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxKeepMinDuplicatePokemon" HorizontalAlignment="Left" Height="23" Margin="270,218,0,0" Text="1" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelKeepMinIvPercentage" Content="Keep Min IV Percentage" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxKeepMinIvPercentage" HorizontalAlignment="Left" Height="23" Margin="270,244,0,0" Text="94.0" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelMaxBallsPerPokemon" Content="Max Balls Per Pokemon" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxMaxBallsPerPokemon" HorizontalAlignment="Left" Height="23" Margin="270,270,0,0" Text="6" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelUseGreatBallAboveCp" Content="Use Great Ball Above CP" HorizontalAlignment="Left" Margin="11,292,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxUseGreatBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,296,0,0" Text="750" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelUseMasterBallAboveCp" Content="Use Master Ball Above CP" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxUseMasterBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,322,0,0" Text="1500" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelUseUltraBallAboveCp" Content="Use Ultra Ball Above CP" HorizontalAlignment="Left" Margin="11,344,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxUseUltraBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,348,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
-                        <CheckBox x:Name="checkboxUseEggIncubators" Content="Use Egg Incubators" HorizontalAlignment="Left" Margin="11,374,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <GroupBox x:Name="groupboxTransfer" Header="Transfers" HorizontalAlignment="Left" Margin="3,394,0,0" VerticalAlignment="Top" Width="347">
-                            <Grid HorizontalAlignment="Left" Height="38" Margin="0,0,0,0" VerticalAlignment="Top" Width="360">
-                                <CheckBox x:Name="checkboxTransferDuplicatePokemon" Content="Transfer Duplicate Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                <CheckBox x:Name="checkboxPrioritizeIvOverCP" Content="Prioritize IV over CP" HorizontalAlignment="Left" Margin="8,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                            </Grid>
-                        </GroupBox>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                        <CheckBox x:Name="checkboxUpdateWarning" Content="Update Warning" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5,0,0">
+                            <Label x:Name="labelLanguage" Content="Language" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLanguage" HorizontalAlignment="Right" Margin="100,0,0,0" VerticalAlignment="Top" Width="40">
+                                <ComboBox.Items>
+                                    <ComboBoxItem Name="comboboxLanguage_da" Content="da"/>
+                                    <ComboBoxItem Name="comboboxLanguage_de" Content="de"/>
+                                    <ComboBoxItem Name="comboboxLanguage_en" Content="en" IsSelected="True"/>
+                                    <ComboBoxItem Name="comboboxLanguage_es" Content="es"/>
+                                    <ComboBoxItem Name="comboboxLanguage_et" Content="et"/>
+                                    <ComboBoxItem Name="comboboxLanguage_fr" Content="fr"/>
+                                    <ComboBoxItem Name="comboboxLanguage_gr" Content="gr"/>
+                                    <ComboBoxItem Name="comboboxLanguage_id" Content="id"/>
+                                    <ComboBoxItem Name="comboboxLanguage_it" Content="it"/>
+                                    <ComboBoxItem Name="comboboxLanguage_nl" Content="nl"/>
+                                    <ComboBoxItem Name="comboboxLanguage_no" Content="no"/>
+                                    <ComboBoxItem Name="comboboxLanguage_pl" Content="pl"/>
+                                    <ComboBoxItem Name="comboboxLanguage_ptbr" Content="pt-br"/>
+                                    <ComboBoxItem Name="comboboxLanguage_ptpt" Content="pt-pt"/>
+                                    <ComboBoxItem Name="comboboxLanguage_ru" Content="ru_RU"/>
+                                    <ComboBoxItem Name="comboboxLanguage_sv" Content="sv"/>
+                                    <ComboBoxItem Name="comboboxLanguage_th" Content="th"/>
+                                    <ComboBoxItem Name="comboboxLanguage_tr" Content="tr"/>
+                                    <ComboBoxItem Name="comboboxLanguage_ukua" Content="uk_UA"/>
+                                    <ComboBoxItem Name="comboboxLanguage_zhcn" Content="zh_CN"/>
+                                    <ComboBoxItem Name="comboboxLanguage_zhtw" Content="zh_tw"/>
+                                </ComboBox.Items>
+                            </ComboBox>
+                        </Grid>
+                        <Grid  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,0,0">
+                            <Label x:Name="labelWebSocketPort" Content="Web Socket Port" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxWebSocketPort" HorizontalAlignment="Left" Height="23" Margin="150,4,0,5" Text="14251" VerticalAlignment="Top" Width="80"/>
+                        </Grid>
+                        <Separator HorizontalAlignment="Stretch" Height="5" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Right" Height="458" Margin="0,38,0,0" VerticalAlignment="Top">
-                        <GroupBox x:Name="groupboxEvolution" Header="Evolution" HorizontalAlignment="Left" Margin="3,0,4,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-                                <CheckBox x:Name="checkboxKeepPokemonsThatCanEvolve" Content="Keep Pokemons That Can Evolve" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <CheckBox x:Name="checkboxEvolveAllPokemonWithEnoughCandy" Content="Evolve All Pokemon With Enough Candy" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <CheckBox x:Name="checkboxEvolveAllPokemonAboveIv" Content="Evolve All Pokemon Above IV" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged" Checked="checkboxChanged" Unchecked="checkboxChanged"/>
-                                <Label x:Name="labelEvolveAboveIvValue" Content="Evolve Above IV Value" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxEvolveAboveIvValue" HorizontalAlignment="Left" Height="23" Margin="260,59,4,4" Text="90.0" VerticalAlignment="Top" Width="80"/>
-                            </Grid>
-                        </GroupBox>
-                        <GroupBox x:Name="groupboxAutoRenaming" Header="Auto Renaming" HorizontalAlignment="Left" Margin="3,109,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-                                <CheckBox x:Name="checkboxRenamePokemon" Content="Rename Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                <CheckBox x:Name="checkboxRenameAboveIv" Content="Rename Above Keep Min IV Percentage" HorizontalAlignment="Left" Margin="14,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                                <Label x:Name="labelRenameTemplate" Content="Rename Template" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabled="False"/>
-                                <TextBox x:Name="textboxRenameTemplate" HorizontalAlignment="Left" Height="23" Margin="260,35,4,4" Text="{}{0}_{1}" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
-                            </Grid>
-                        </GroupBox>
-                        <GroupBox x:Name="groupBox3" Header="Lucky Eggs" HorizontalAlignment="Left" Margin="3,183,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-                                <CheckBox x:Name="checkboxUseLuckyEggsWhileEvolving" Content="Use Lucky Eggs While Evolving" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                <Label x:Name="labelUseLuckyEggsMinPokemonAmount" Content="Use Lucky Eggs Min Pokemon Amount" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxUseLuckyEggsMinPokemonAmount" HorizontalAlignment="Left" Height="23" Margin="260,19,4,4" Text="30" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
-                            </Grid>
-                        </GroupBox>
-                        <GroupBox x:Name="groupGpxPathing" Header="GPX Pathing" HorizontalAlignment="Left" Margin="3,261,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top">
-                                <CheckBox x:Name="checkboxUseGpxPathing" Content="Use Gpx Pathing" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                <Label x:Name="labelGpxFile" Content="Gpx File Name" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxGpxFile" HorizontalAlignment="Left" Height="23" Margin="99,16,0,0" Text="" VerticalAlignment="Top" Width="215" IsEnabled="False"/>
-                                <Button x:Name="buttonGpxFilePicker" Content="..." HorizontalAlignment="Left" Margin="322,18,4,0" VerticalAlignment="Top" Width="18" IsEnabled="False" Click="buttonFilenamePicker_Click"/>
-                            </Grid>
-                        </GroupBox>
-                        <GroupBox x:Name="groupboxAuth" Header="Auth" HorizontalAlignment="Left" Margin="3,325,0,0" VerticalAlignment="Top">
-                            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
-                                <Label x:Name="labelAuthType" Content="AuthType" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <ComboBox x:Name="comboboxAuthType" HorizontalAlignment="Left" Margin="260,3,0,0" VerticalAlignment="Top" Width="80" Height="23" SelectionChanged="comboboxSelectionChanged" FontWeight="Bold">
-                                    <ComboBoxItem x:Name="comboboxAuthType_Google" Content="Google" IsSelected="True"/>
-                                    <ComboBoxItem x:Name="comboboxAuthType_Ptc" Content="PTC"/>
-                                </ComboBox>
-                                <Label x:Name="labelUsername" Content="Username" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxUsername" HorizontalAlignment="Left" Height="23" Margin="260,31,0,0" Text="0" VerticalAlignment="Top"  Width="80"/>
-                                <Label x:Name="labelPassword" Content="Password" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxPassword" HorizontalAlignment="Left" Margin="260,57,0,0" Height="23" VerticalAlignment="Top" FontWeight="Bold" Width="80"/>
-                                <Label x:Name="labelRefreshToken" Content="RefreshToken" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                <TextBox x:Name="textboxRefreshToken" HorizontalAlignment="Left" Height="23" Margin="260,83,4,4" Text="0" VerticalAlignment="Top" Width="80"/>
-                            </Grid>
-                        </GroupBox>
+                    <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                            <Label x:Name="labelAltitued" Content="Altitude" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxAltitude" HorizontalAlignment="Left" Height="23" Margin="270,10,4,0" Text="10" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelLatitude" Content="Latitude" HorizontalAlignment="Left" Margin="11,32,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxLatitude" HorizontalAlignment="Left" Height="23" Margin="270,36,0,0" Text="38.976226" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelLongitude" Content="Longitude" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxLongitude" HorizontalAlignment="Left" Height="23" Margin="270,62,0,0" Text="-77.643218" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelDelayBetweenPokemonCatch" Content="Delay between catch" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxDelayBetweenPokemonCatch" HorizontalAlignment="Left" Height="23" Margin="270,88,0,0" Text="4000" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelDelayBetweenPlayerActions" Content="Delay Between Actions" HorizontalAlignment="Left" Margin="11,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxDelayBetweenPlayerActions" HorizontalAlignment="Left" Height="23" Margin="270,114,0,0" Text="5000" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelMaxTravelDistanceInMeters" Content="Max Travel Distance (m)" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxMaxTravelDistanceInMeters" HorizontalAlignment="Left" Height="23" Margin="270,140,0,0" Text="24000" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelWalkingSpeedInKilometerPerHour" Content="Walking Speed (km/hr)" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxWalkingSpeedInKilometerPerHour" HorizontalAlignment="Left" Height="23" Margin="270,166,0,0" Text="10.0" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelKeepMinCp" Content="Keep Min CP" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxKeepMinCp" HorizontalAlignment="Left" Height="23" Margin="270,192,0,0" Text="1250" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelKeepMinDuplicatePokemon" Content="Keep Min Duplicate Pokemon" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxKeepMinDuplicatePokemon" HorizontalAlignment="Left" Height="23" Margin="270,218,0,0" Text="1" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelKeepMinIvPercentage" Content="Keep Min IV Percentage" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxKeepMinIvPercentage" HorizontalAlignment="Left" Height="23" Margin="270,244,0,0" Text="94.0" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelMaxBallsPerPokemon" Content="Max Balls Per Pokemon" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxMaxBallsPerPokemon" HorizontalAlignment="Left" Height="23" Margin="270,270,0,0" Text="6" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelUseGreatBallAboveCp" Content="Use Great Ball Above CP" HorizontalAlignment="Left" Margin="11,292,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxUseGreatBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,296,0,0" Text="750" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelUseMasterBallAboveCp" Content="Use Master Ball Above CP" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxUseMasterBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,322,0,0" Text="1500" VerticalAlignment="Top" Width="80"/>
+                            <Label x:Name="labelUseUltraBallAboveCp" Content="Use Ultra Ball Above CP" HorizontalAlignment="Left" Margin="11,344,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxUseUltraBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,348,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
+                            <CheckBox x:Name="checkboxUseEggIncubators" Content="Use Egg Incubators" HorizontalAlignment="Left" Margin="11,374,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <GroupBox x:Name="groupboxTransfer" Header="Transfers" HorizontalAlignment="Left" Margin="3,394,0,0" VerticalAlignment="Top" Width="347">
+                                <Grid HorizontalAlignment="Left" Height="38" Margin="0,0,0,0" VerticalAlignment="Top" Width="360">
+                                    <CheckBox x:Name="checkboxTransferDuplicatePokemon" Content="Transfer Duplicate Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <CheckBox x:Name="checkboxPrioritizeIvOverCP" Content="Prioritize IV over CP" HorizontalAlignment="Left" Margin="8,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                        <Grid HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <GroupBox Grid.Row="0" x:Name="groupboxEvolution" Header="Evolution" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                                    <CheckBox x:Name="checkboxKeepPokemonsThatCanEvolve" Content="Keep Pokemons That Can Evolve" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <CheckBox x:Name="checkboxEvolveAllPokemonWithEnoughCandy" Content="Evolve All Pokemon With Enough Candy" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <CheckBox x:Name="checkboxEvolveAllPokemonAboveIv" Content="Evolve All Pokemon Above IV" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged" Checked="checkboxChanged" Unchecked="checkboxChanged"/>
+                                    <Label x:Name="labelEvolveAboveIvValue" Content="Evolve Above IV Value" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxEvolveAboveIvValue" HorizontalAlignment="Left" Height="23" Margin="260,59,4,4" Text="90.0" VerticalAlignment="Top" Width="80"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupboxAutoRenaming" Header="Auto Renaming" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                                    <CheckBox x:Name="checkboxRenamePokemon" Content="Rename Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <CheckBox x:Name="checkboxRenameAboveIv" Content="Rename Above Keep Min IV Percentage" HorizontalAlignment="Left" Margin="14,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                                    <Label x:Name="labelRenameTemplate" Content="Rename Template" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabled="False"/>
+                                    <TextBox x:Name="textboxRenameTemplate" HorizontalAlignment="Left" Height="23" Margin="260,35,4,4" Text="{}{0}_{1}" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupBox3" Header="Lucky Eggs" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
+                                    <CheckBox x:Name="checkboxUseLuckyEggsWhileEvolving" Content="Use Lucky Eggs While Evolving" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <Label x:Name="labelUseLuckyEggsMinPokemonAmount" Content="Use Lucky Eggs Min Pokemon Amount" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxUseLuckyEggsMinPokemonAmount" HorizontalAlignment="Left" Height="23" Margin="260,19,4,4" Text="30" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupGpxPathing" Header="GPX Pathing" HorizontalAlignment="Left" Margin="0,261,0,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top">
+                                    <CheckBox x:Name="checkboxUseGpxPathing" Content="Use Gpx Pathing" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <Label x:Name="labelGpxFile" Content="Gpx File Name" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxGpxFile" HorizontalAlignment="Left" Height="23" Margin="99,16,0,0" Text="" VerticalAlignment="Top" Width="215" IsEnabled="False"/>
+                                    <Button x:Name="buttonGpxFilePicker" Content="..." HorizontalAlignment="Left" Margin="322,18,4,0" VerticalAlignment="Top" Width="18" IsEnabled="False" Click="buttonFilenamePicker_Click"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="groupboxAuth" Header="Auth" HorizontalAlignment="Left" Margin="0,325,0,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
+                                    <Label x:Name="labelAuthType" Content="AuthType" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <ComboBox x:Name="comboboxAuthType" HorizontalAlignment="Left" Margin="260,3,0,0" VerticalAlignment="Top" Width="80" Height="23" SelectionChanged="comboboxSelectionChanged" FontWeight="Bold">
+                                        <ComboBoxItem x:Name="comboboxAuthType_Google" Content="Google" IsSelected="True"/>
+                                        <ComboBoxItem x:Name="comboboxAuthType_Ptc" Content="PTC"/>
+                                    </ComboBox>
+                                    <Label x:Name="labelUsername" Content="Username" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxUsername" HorizontalAlignment="Left" Height="23" Margin="260,31,0,0" Text="0" VerticalAlignment="Top"  Width="80"/>
+                                    <Label x:Name="labelPassword" Content="Password" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxPassword" HorizontalAlignment="Left" Margin="260,57,0,0" Height="23" VerticalAlignment="Top" FontWeight="Bold" Width="80"/>
+                                    <Label x:Name="labelRefreshToken" Content="RefreshToken" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxRefreshToken" HorizontalAlignment="Left" Height="23" Margin="260,83,4,4" Text="0" VerticalAlignment="Top" Width="80"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
                     </Grid>
-
-
-
                 </Grid>
             </TabItem>
             <TabItem Header="More Setup">
