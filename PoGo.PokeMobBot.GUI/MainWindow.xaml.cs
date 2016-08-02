@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region usingdirectives
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,21 @@ using System.Windows.Shapes;
 
 using System.IO;
 using Microsoft.Win32;
+
+#if POKEMOBOT
+using System.Threading;
+using PoGo.PokeMobBot.Logic;
+using PoGo.PokeMobBot.CLI;
+using PokemonGo.RocketAPI;
+using PoGo.PokeMobBot.Logic.Common;
+using PoGo.PokeMobBot.Logic.Event;
+using PoGo.PokeMobBot.Logic.Logging;
+using PoGo.PokeMobBot.Logic.State;
+using PoGo.PokeMobBot.Logic.Tasks;
+using PoGo.PokeMobBot.Logic.Utils;
+#endif
+
+#endregion
 
 namespace PoGo.PokeMobBot.GUI
 {
@@ -33,23 +50,79 @@ namespace PoGo.PokeMobBot.GUI
             labelStatusRuntimeData.Content = "00:00:00.00";
             initialized = true;
 
-            // call main CLI settings class to load config.json and auth.json
-            //
-            // Once integrated with main CLI source, the loading of the objects in the settings class should fire the events
-            // so that the MVVM triggers listeners to update the GUI
-            //
-            // Ideally we will create translation .json files for each control so that we translate the WiKi help section
-            // into live mouseovers for every control.  That isn't very touch friendly so we will have to think about that.
-            tooltipsInitialize();
-            initializeGlobalButtons();            
+#if POKEMOBOT
+            var settingsGlobal = GlobalSettings.Load("");            
 
-            enableControls(false);      // cycle the controls to synchronize everything
+            initializeSettings(settingsGlobal);
+#endif
+
+            tooltipsInitialize();                                           // Read the tooltips translation file
+            initializeGlobalButtons();                                      // set the current state
+
+            // cycle the controls to synchronize everything
+            enableControls(false);
             enableControls(true);
             //
-            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.","This project is a concept only", MessageBoxButton.OK);
+
+            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);
         }
 
-         private void tooltipsInitialize()
+#if POKEMOBOT
+        private void initializeSettings(GlobalSettings settings)
+        {
+            textboxLongitude.Text = settings.DefaultLongitude.ToString();
+            textboxLatitude.Text = settings.DefaultLatitude.ToString();
+            textboxAltitude.Text = settings.DefaultAltitude.ToString();
+            checkboxUpdateWarning.IsChecked = settings.AutoUpdate;
+            textboxDelayBetweenPlayerActions.Text = settings.DelayBetweenPlayerActions.ToString();
+            textboxDelayBetweenPokemonCatch.Text = settings.DelayBetweenPokemonCatch.ToString();
+            textboxMaxTravelDistanceInMeters.Text = settings.MaxTravelDistanceInMeters.ToString();
+            textboxWalkingSpeedInKilometerPerHour.Text = settings.WalkingSpeedInKilometerPerHour.ToString();
+            textboxKeepMinCp.Text = settings.KeepMinCp.ToString();
+            textboxKeepMinDuplicatePokemon.Text = settings.KeepMinDuplicatePokemon.ToString();
+            textboxKeepMinIvPercentage.Text = settings.KeepMinIvPercentage.ToString();
+            textboxMaxBallsPerPokemon.Text = settings.MaxPokeballsPerPokemon.ToString();
+            textboxUseGreatBallAboveIv.Text = settings.UseGreatBallAboveIv.ToString();
+            textboxUseMasterBallAboveIv.Text = "";
+            textboxUseUltraBallAboveIv.Text = "";
+            checkboxUseEggIncubators.IsChecked = settings.UseEggIncubators;
+            checkboxAutoFavoritePokemon.IsChecked = settings.AutoFavoritePokemon;
+            checkboxTransferDuplicatePokemon.IsChecked = settings.TransferDuplicatePokemon;
+            checkboxPrioritizeIvOverCP.IsChecked = settings.PrioritizeIvOverCp;
+            checkboxKeepPokemonsThatCanEvolve.IsChecked = settings.KeepPokemonsThatCanEvolve;
+            checkboxEvolveAllPokemonWithEnoughCandy.IsChecked = settings.EvolveAllPokemonWithEnoughCandy;
+            checkboxEvolveAllPokemonAboveIv.IsChecked = settings.EvolveAllPokemonAboveIv;
+            textboxEvolveAboveIvValue.Text = settings.EvolveAboveIvValue.ToString();
+            checkboxRenamePokemon.IsChecked = settings.RenamePokemon;
+            checkboxRenameAboveIv.IsChecked = settings.RenameOnlyAboveIv;
+            textboxRenameTemplate.Text = settings.RenameTemplate.ToString();
+            checkboxUseGpxPathing.IsChecked = settings.UseGpxPathing;
+            textboxGpxFile.Text = settings.GpxFile.ToString();
+            checkboxUseLuckyEggsWhileEvolving.IsChecked = settings.UseLuckyEggsWhileEvolving;
+            textboxUseLuckyEggsMinPokemonAmount.Text = settings.UseLuckyEggsMinPokemonAmount.ToString();
+            textboxMaxSpawnLocationOffset.Text = settings.MaxSpawnLocationOffset.ToString();
+            if (settings.LevelUpByCPorIv.CompareTo("cp") == 0)
+                comboboxLevelUpByCPorIV.SelectedItem = comboboxLevelUpByCPorIV_CP;
+            else
+                comboboxLevelUpByCPorIV.SelectedItem = comboboxLevelUpByCPorIV_IV;
+            textboxUpgradePokemonCpMinimum.Text = settings.UpgradePokemonCpMinimum.ToString();
+            textboxUpgradePokemonIvMinimum.Text = settings.UpgradePokemonIvMinimum.ToString();
+            textboxUseBerryMinCp.Text = settings.UseBerryMinCp.ToString();
+            textboxUseBerryMinIv.Text = settings.UseBerryMinIv.ToString();
+            textboxUseGreatBallBelowCatchProbability.Text = settings.UseGreatBallBelowCatchProbability.ToString();
+            textboxUseUltraBallAboveIv.Text = settings.UseUltraBallBelowCatchProbability.ToString();
+            textboxUseMasterBallBelowCatchProbability.Text = settings.UseMasterBallBelowCatchProbability.ToString();
+            textboxFavoriteMinIvPercentage.Text = settings.FavoriteMinIvPercentage.ToString();
+            checkboxHumanizeThrows.IsChecked = settings.HumanizeThrows;
+            textboxThrowAccuracyMin.Text = settings.ThrowAccuracyMin.ToString();
+            textboxThrowAccuracyMax.Text = settings.ThrowAccuracyMax.ToString();
+            textboxThrowSpinFrequency.Text = settings.ThrowSpinFrequency.ToString();
+            textboxUseBerryBelowCatchProbability.Text = settings.UseBerryBelowCatchProbability.ToString();
+            textboxRecycleInventoryAtUsagePercentage.Text = settings.RecycleInventoryAtUsagePercentage.ToString();
+        }
+#endif
+
+        private void tooltipsInitialize()
         {
             // we are going to do this in code so that we are prepared for a change to another language through translations
             // putting these in statically just to demonstrate the idea
@@ -155,6 +228,7 @@ namespace PoGo.PokeMobBot.GUI
                 // the settings in memory will be updated as they are changed by the user
                 // the user will need to hit the apply button to cause the settings to be 
                 // written back out to disk in the config.json and auth.json files
+                MessageBoxResult messageboxApply = MessageBox.Show("Saving session configuration not implemented", "Notice", MessageBoxButton.OK);
             }
             else if (sender == buttonStart)
             {
@@ -349,7 +423,7 @@ namespace PoGo.PokeMobBot.GUI
                     textboxThrowSpinFrequency.IsEnabled = false;
                 }
                 else
-                {                    
+                {
                     labelThrowAccuracyMin.IsEnabled = true;
                     textboxThrowAccuracyMin.IsEnabled = true;
                     labelThrowAccuracyMax.IsEnabled = true;
