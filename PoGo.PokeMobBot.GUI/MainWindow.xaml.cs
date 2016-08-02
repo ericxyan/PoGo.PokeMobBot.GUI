@@ -47,7 +47,7 @@ namespace PoGo.PokeMobBot.GUI
             enableControls(true);
         }
 
-        private void tooltipsInitialize()
+         private void tooltipsInitialize()
         {
             // we are going to do this in code so that we are prepared for a change to another language through translations
             // putting these in statically just to demonstrate the idea
@@ -306,7 +306,7 @@ namespace PoGo.PokeMobBot.GUI
             }
             else if (sender == checkboxUseSnipeLocationServer)
             {
-                if (checkboxUseSnipeLocationServer.IsChecked == false && checkboxUseSnipeLocationServer.IsEnabled == false)
+                if (checkboxUseSnipeLocationServer.IsChecked == false || checkboxUseSnipeLocationServer.IsEnabled == false)
                 {
                     labelSnipeLocationServer.IsEnabled = false;
                     textboxSnipeLocationServer.IsEnabled = false;
@@ -323,7 +323,7 @@ namespace PoGo.PokeMobBot.GUI
             }
             else if (sender == checkboxEvolveAllPokemonAboveIv)
             {
-                if (checkboxEvolveAllPokemonAboveIv.IsChecked == false && checkboxEvolveAllPokemonAboveIv.IsEnabled == false)
+                if (checkboxEvolveAllPokemonAboveIv.IsChecked == false || checkboxEvolveAllPokemonAboveIv.IsEnabled == false)
                 {
                     labelEvolveAboveIvValue.IsEnabled = false;
                     textboxEvolveAboveIvValue.IsEnabled = false;
@@ -333,6 +333,27 @@ namespace PoGo.PokeMobBot.GUI
                     labelEvolveAboveIvValue.IsEnabled = true;
                     textboxEvolveAboveIvValue.IsEnabled = true;
 
+                }
+            }
+            else if (sender == checkboxHumanizeThrows)
+            {
+                if (checkboxHumanizeThrows.IsChecked == false || checkboxHumanizeThrows.IsEnabled == false)
+                {
+                    labelThrowAccuracyMin.IsEnabled = false;
+                    textboxThrowAccuracyMin.IsEnabled = false;
+                    labelThrowAccuracyMax.IsEnabled = false;
+                    textboxThrowAccuracyMax.IsEnabled = false;
+                    labelThrowSpinFrequency.IsEnabled = false;
+                    textboxThrowSpinFrequency.IsEnabled = false;
+                }
+                else
+                {                    
+                    labelThrowAccuracyMin.IsEnabled = true;
+                    textboxThrowAccuracyMin.IsEnabled = true;
+                    labelThrowAccuracyMax.IsEnabled = true;
+                    textboxThrowAccuracyMax.IsEnabled = true;
+                    labelThrowSpinFrequency.IsEnabled = true;
+                    textboxThrowSpinFrequency.IsEnabled = true;
                 }
             }
         }

@@ -154,6 +154,7 @@
                             <Label x:Name="labelUseUltraBallAboveCp" Content="Use Ultra Ball Above CP" HorizontalAlignment="Left" Margin="11,344,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <TextBox x:Name="textboxUseUltraBallAboveCp" HorizontalAlignment="Left" Height="23" Margin="270,348,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
                             <CheckBox x:Name="checkboxUseEggIncubators" Content="Use Egg Incubators" HorizontalAlignment="Left" Margin="11,374,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <CheckBox x:Name="checkboxAutoFavoritePokemon" Content="Auto Favorite Pokemon" HorizontalAlignment="Left" Margin="195,374,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <GroupBox x:Name="groupboxTransfer" Header="Transfers" HorizontalAlignment="Left" Margin="3,394,0,0" VerticalAlignment="Top" Width="347">
                                 <Grid HorizontalAlignment="Left" Height="38" Margin="0,0,0,0" VerticalAlignment="Top" Width="360">
                                     <CheckBox x:Name="checkboxTransferDuplicatePokemon" Content="Transfer Duplicate Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
@@ -221,22 +222,86 @@
             </TabItem>
             <TabItem Header="More Setup">
                 <Grid x:Name="gridMoreSetup" Background="white">
-                    <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="10,0,0,0">
-                        <Label x:Name="labelMaxSpawnLocationOffset" Content="Max Spawn Location Offset" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxMaxSpawnLocationOffset" HorizontalAlignment="Left" Height="23" Margin="270,10,0,0" Text="10" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelLevelUpByCPorIV" Content="Level Up By CP or IV" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ComboBox x:Name="comboboxLevelUpByCPorIV" HorizontalAlignment="Left" Margin="270,38,0,0" VerticalAlignment="Top" Width="80" Height="23">
+                    <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="10,4,5,4">
+                        <Label x:Name="labelMaxSpawnLocationOffset" Content="Max Spawn Location Offset" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textboxMaxSpawnLocationOffset" HorizontalAlignment="Left" Height="23" Margin="260,4,0,0" Text="10" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelLevelUpByCPorIV" Content="Level Up By CP or IV" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <ComboBox x:Name="comboboxLevelUpByCPorIV" HorizontalAlignment="Left" Margin="260,30,0,0" VerticalAlignment="Top" Width="80" Height="23">
                             <ComboBoxItem x:Name="comboboxEvolveAllLevelUpByCPorIV_IV" Content="iv"/>
                             <ComboBoxItem x:Name="comboboxEvolveAllLevelUpByCPorIV_CP" Content="cp" IsSelected="True"/>
                         </ComboBox>
-                        <Label x:Name="labelUpgradePokemonCpMinimum" Content="Upgrade Pokemon CP Min" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxUpgradePokemonCpMinimum" HorizontalAlignment="Left" Height="23" Margin="270,66,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
-                        <Label x:Name="labelUpgradePokemonIvMinimum" Content="Upgrade Pokemon IV Min" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textboxUpgradePokemonIvMinimum" HorizontalAlignment="Left" Height="23" Margin="270,94,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUpgradePokemonCpMinimum" Content="Upgrade Pokemon CP Min" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textboxUpgradePokemonCpMinimum" HorizontalAlignment="Left" Height="23" Margin="260,56,0,0" Text="1000" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUpgradePokemonIvMinimum" Content="Upgrade Pokemon IV Min" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textboxUpgradePokemonIvMinimum" HorizontalAlignment="Left" Height="23" Margin="260,82,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+
+                        <!-- New for 1.0.1 need to reorganize overall list to logically group -->
+
+                        <Label x:Name="labelUseBerryMinCp" Content="Use Berry Min Cp" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseBerryMinCp" HorizontalAlignment="Left" Height="23" Margin="260,108,0,0" Text="450" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUseBerryMinIv" Content="Use Berry Min Iv" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseBerryMinIv" HorizontalAlignment="Left" Height="23" Margin="260,134,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUseGreatBallBelowCatchProbability" Content="Use Great Ball Below Catch Probability" HorizontalAlignment="Left" Margin="0,156,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseGreatBallBelowCatchProbability" HorizontalAlignment="Left" Height="23" Margin="260,160,0,0" Text="0.5" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUseUltraBallBelowCatchProbability" Content="Use Ultra Ball Below Catch Probability" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseUltraBallBelowCatchProbability" HorizontalAlignment="Left" Height="23" Margin="260,186,0,0" Text="0.25" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUseMasterBallBelowCatchProbability" Content="Use Master Ball Below Catch Probability" HorizontalAlignment="Left" Margin="0,208,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseMasterBallBelowCatchProbability" HorizontalAlignment="Left" Height="23" Margin="260,212,0,0" Text="0.05" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUseGreatBallAboveIv" Content="Ise Great Ball Above IV" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseGreatBallAboveIv" HorizontalAlignment="Left" Height="23" Margin="260,238,0,0" Text="80" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelUseUltraBallAboveIv" Content="Use Ultra Vall Above IV" HorizontalAlignment="Left" Margin="0,260,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textUseUltraBallAboveIv" HorizontalAlignment="Left" Height="23" Margin="260,264,0,0" Text="90" VerticalAlignment="Top" Width="80"/>
+                        <Label x:Name="labelFavoriteMinIvPercentage" Content="Favorite Min IV Percentage" HorizontalAlignment="Left" Margin="0,286,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textFavoriteMinIvPercentage" HorizontalAlignment="Left" Height="23" Margin="260,290,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                        <GroupBox x:Name="groupboxHumanizeThrows" Header="Humanize" HorizontalAlignment="Left" Margin="0,312,0,0" VerticalAlignment="Top" Width="347">
+                            <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="360">
+                                <CheckBox x:Name="checkboxHumanizeThrows" Content="Humanize Throws" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                <Label x:Name="labelThrowAccuracyMin" Content="Throw Accuracy Min" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxThrowAccuracyMin" HorizontalAlignment="Left" Height="23" Margin="250,24,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                                <Label x:Name="labelThrowAccuracyMax" Content="Throw Accuracy Max" HorizontalAlignment="Left" Margin="20,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxThrowAccuracyMax" HorizontalAlignment="Left" Height="23" Margin="250,50,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                                <Label x:Name="labelThrowSpinFrequency" Content="Throw Spin Frequency" HorizontalAlignment="Left" Margin="20,72,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxThrowSpinFrequency" HorizontalAlignment="Left" Height="23" Margin="250,76,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                            </Grid>
+                            
+                        </GroupBox>
+                        <CheckBox x:Name="checkboxUseBerryBelowCatchProbability" Content="Use Berry Below Catch Probability" HorizontalAlignment="Left" Margin="0,441,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="labelRecycleInventoryAtUsagePercentage" Content="Recycle Inventory At Usage Percentage" HorizontalAlignment="Left" Margin="0,460,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textRecycleInventoryAtUsagePercentage" HorizontalAlignment="Left" Height="23" Margin="260,464,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top">
-                        <Label x:Name="labelPlaceholderX" Content="Upgrade Pokemon IV Min" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
-                        <TextBox x:Name="textPlaceholderX" HorizontalAlignment="Left" Height="23" Margin="270,94,0,0" Text="95.0" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
+                    <Grid HorizontalAlignment="Stretch" Margin="5,4,10,4" VerticalAlignment="Top">
+
+                        <!-- Wrapping this in its own grid so that the grid can be moved around without needing to edit the offsets  -->
+                        <Grid HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top">
+                            <Label x:Name="labelLogLevelColorForeground" Content="Foreground Color" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorForeground" HorizontalAlignment="Left" Margin="260,4,0,0" VerticalAlignment="Top" Width="80" Height="23" ToolTip="This would be a color picker.  The default colors for the current CLI application don't display well on a white background."/>
+                            <Label x:Name="labelLogLevelColorWarning" Content="Warning Color" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorWarning" HorizontalAlignment="Left" Margin="260,30,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorInfo" Content="Info Color" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorInfo" HorizontalAlignment="Left" Margin="260,56,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorPokestop" Content="Pokestop Color" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorPokestop" HorizontalAlignment="Left" Margin="260,82,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorFarming" Content="Farming Color" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorFarming" HorizontalAlignment="Left" Margin="260,108,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorRecycling" Content="Recycling Color" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorRecycling" HorizontalAlignment="Left" Margin="260,134,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorCaught" Content="Caught Color" HorizontalAlignment="Left" Margin="0,156,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorCaught" HorizontalAlignment="Left" Margin="260,160,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorTransfer" Content="Transfer Color" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorTransfer" HorizontalAlignment="Left" Margin="260,186,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorEvolve" Content="Evolve Color" HorizontalAlignment="Left" Margin="0,208,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorEvolve" HorizontalAlignment="Left" Margin="260,212,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorBerry" Content="Berry Color" HorizontalAlignment="Left" Margin="0,234,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorBerry" HorizontalAlignment="Left" Margin="260,238,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorEgg" Content="Egg Color" HorizontalAlignment="Left" Margin="0,260,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorEgg" HorizontalAlignment="Left" Margin="260,264,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorDebug" Content="Debug Color" HorizontalAlignment="Left" Margin="0,286,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorDebug" HorizontalAlignment="Left" Margin="260,290,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                            <Label x:Name="labelLogLevelColorUpdate" Content="Foreground Color" HorizontalAlignment="Left" Margin="0,312,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboboxLogLevelColorUpdate" HorizontalAlignment="Left" Margin="260,316,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+                        </Grid>
+                        <!-- End of grid to isolate color lists -->
+
                     </Grid>
                 </Grid>
             </TabItem>
