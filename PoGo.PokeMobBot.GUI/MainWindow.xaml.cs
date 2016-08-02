@@ -45,6 +45,8 @@ namespace PoGo.PokeMobBot.GUI
 
             enableControls(false);      // cycle the controls to synchronize everything
             enableControls(true);
+            //
+            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.","This project is a concept only", MessageBoxButton.OK);
         }
 
          private void tooltipsInitialize()
