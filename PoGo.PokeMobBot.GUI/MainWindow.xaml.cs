@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 
-#if POKEMOBOT
+#if POKEMOBBOT
 using System.Threading;
 using PoGo.PokeMobBot.Logic;
 using PoGo.PokeMobBot.CLI;
@@ -50,7 +50,7 @@ namespace PoGo.PokeMobBot.GUI
             labelStatusRuntimeData.Content = "00:00:00.00";
             initialized = true;
 
-#if POKEMOBOT
+#if POKEMOBBOT
             var settingsGlobal = GlobalSettings.Load("");            
 
             initializeSettings(settingsGlobal);
@@ -67,7 +67,7 @@ namespace PoGo.PokeMobBot.GUI
             MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);
         }
 
-#if POKEMOBOT
+#if POKEMOBBOT
         private void initializeSettings(GlobalSettings settings)
         {
             textboxLongitude.Text = settings.DefaultLongitude.ToString();
