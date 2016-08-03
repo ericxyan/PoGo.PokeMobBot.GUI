@@ -191,10 +191,8 @@ namespace PoGo.PokeMobBot.GUI
             gridRecycleFilter.IsEnabled = value;
             gridSetup.IsEnabled = value;
             gridMoreSetup.IsEnabled = value;
-            gridExceptions.IsEnabled = value;
-            gridKeepAndEvolve.IsEnabled = value;
+            gridExceptions.IsEnabled = value;            
             gridSnipeFilter.IsEnabled = value;
-            gridNotToCatchFilter.IsEnabled = value;
             gridTransferFilters.IsEnabled = value;
             buttonApply.IsEnabled = value;
             buttonExit.IsEnabled = value;
