@@ -384,7 +384,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,20">
                             <CheckBox x:Name="checkboxUsePokemonNotToCatchFilter" Content="Use Pokemon Not To Catch Filter" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
                         </Grid>
                         <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
@@ -406,7 +406,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,4">
                             <Label x:Name="labelKeepMinCp" Content="Keep Min CP" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                             <TextBox x:Name="textboxKeepMinCp" HorizontalAlignment="Left" Height="23" Margin="260,4,0,0" Text="1250" VerticalAlignment="Top" Width="80"/>
                             <Label x:Name="labelKeepMinDuplicatePokemon" Content="Keep Min Duplicate Pokemon" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
