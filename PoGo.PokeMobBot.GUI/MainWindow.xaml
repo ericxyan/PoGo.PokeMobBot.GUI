@@ -169,15 +169,7 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <GroupBox Grid.Row="0" x:Name="groupboxEvolution" Header="Evolution" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-                                <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
-                                    <CheckBox x:Name="checkboxKeepPokemonsThatCanEvolve" Content="Keep Pokemons That Can Evolve" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <CheckBox x:Name="checkboxEvolveAllPokemonWithEnoughCandy" Content="Evolve All Pokemon With Enough Candy" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <CheckBox x:Name="checkboxEvolveAllPokemonAboveIv" Content="Evolve All Pokemon Above IV" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged" Checked="checkboxChanged" Unchecked="checkboxChanged"/>
-                                    <Label x:Name="labelEvolveAboveIvValue" Content="Evolve Above IV Value" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <TextBox x:Name="textboxEvolveAboveIvValue" HorizontalAlignment="Left" Height="23" Margin="260,59,4,4" Text="90.0" VerticalAlignment="Top" Width="80"/>
-                                </Grid>
-                            </GroupBox>
+                           
                             <GroupBox x:Name="groupboxAutoRenaming" Header="Auto Renaming" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top">
                                 <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                                     <CheckBox x:Name="checkboxRenamePokemon" Content="Rename Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
@@ -409,8 +401,21 @@
                         <TextBox x:Name="listboxPokemonsToKeep" HorizontalAlignment="Stretch" Margin="0,31,0,0" VerticalAlignment="Stretch" Text="Placeholder... user will edit PokemonsToKeep list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                     </Grid>
                     <Grid Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
-                        <Label x:Name="labelPokemonsToEvolve" Content="Pokemons to evolve" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="listboxPokemonsNotToEvolve" HorizontalAlignment="Stretch"  Margin="0,31,0,0" VerticalAlignment="Stretch" Text="Placeholder... user will edit PokemonsNotToEvolve list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0m0m0m0">
+                            <CheckBox x:Name="checkboxKeepPokemonsThatCanEvolve" Content="Keep Pokemons That Can Evolve" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <CheckBox x:Name="checkboxEvolveAllPokemonWithEnoughCandy" Content="Evolve All Pokemon With Enough Candy" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <CheckBox x:Name="checkboxEvolveAllPokemonAboveIv" Content="Evolve All Pokemon Above IV" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged" Checked="checkboxChanged" Unchecked="checkboxChanged"/>
+                            <Label x:Name="labelEvolveAboveIvValue" Content="Evolve Above IV Value" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <TextBox x:Name="textboxEvolveAboveIvValue" HorizontalAlignment="Left" Height="23" Margin="260,59,4,4" Text="90.0" VerticalAlignment="Top" Width="80"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                            <TextBox x:Name="listboxPokemonsNotToEvolve" HorizontalAlignment="Stretch"  Margin="0,0,0,0" VerticalAlignment="Stretch" Text="Placeholder... user will edit PokemonsNotToEvolve list here" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        </Grid>
                     </Grid>
                 </Grid>
             </TabItem>
