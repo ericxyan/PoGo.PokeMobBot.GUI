@@ -192,7 +192,7 @@ namespace PoGo.PokeMobBot.GUI
             gridSetup.IsEnabled = value;
             gridMoreSetup.IsEnabled = value;
             gridExceptions.IsEnabled = value;
-            gridExceptionsToKeep.IsEnabled = value;
+            gridKeepAndEvolve.IsEnabled = value;
             gridSnipeFilter.IsEnabled = value;
             gridNotToCatchFilter.IsEnabled = value;
             gridTransferFilters.IsEnabled = value;
@@ -308,11 +308,13 @@ namespace PoGo.PokeMobBot.GUI
                 {
                     checkboxPrioritizeIvOverCP.IsEnabled = false;
                     checkboxPrioritizeIvOverCP.FontWeight = FontWeights.Normal;
+                    textboxPokemonsNotToTransfer.IsEnabled = false;
                 }
                 else
                 {
                     checkboxPrioritizeIvOverCP.IsEnabled = true;
                     checkboxPrioritizeIvOverCP.FontWeight = FontWeights.Bold;
+                    textboxPokemonsNotToTransfer.IsEnabled = true;
                 }
             }
             else if (sender == checkboxUseLuckyEggsWhileEvolving)
@@ -430,6 +432,17 @@ namespace PoGo.PokeMobBot.GUI
                     textboxThrowAccuracyMax.IsEnabled = true;
                     labelThrowSpinFrequency.IsEnabled = true;
                     textboxThrowSpinFrequency.IsEnabled = true;
+                }
+            }
+            else if (sender == checkboxUsePokemonNotToCatchFilter)
+            {
+                if (checkboxUsePokemonNotToCatchFilter.IsChecked == false || checkboxUsePokemonNotToCatchFilter.IsEnabled == false)
+                {
+                    listboxPokemonsToIgnore.IsEnabled = false;
+                }
+                else
+                {
+                    listboxPokemonsToIgnore.IsEnabled = true;
                 }
             }
         }
