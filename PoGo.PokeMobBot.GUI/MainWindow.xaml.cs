@@ -443,6 +443,19 @@ namespace PoGo.PokeMobBot.GUI
                     listboxPokemonsToIgnore.IsEnabled = true;
                 }
             }
+            else if (sender == checkboxAutoFavoritePokemon)
+            {
+                if (checkboxAutoFavoritePokemon.IsChecked == false || checkboxAutoFavoritePokemon.IsEnabled == false)
+                {
+                    labelFavoriteMinIvPercentage.IsEnabled = false;
+                    textboxFavoriteMinIvPercentage.IsEnabled = false;
+                }
+                else
+                {
+                    labelFavoriteMinIvPercentage.IsEnabled = true;
+                    textboxFavoriteMinIvPercentage.IsEnabled = true;
+                }
+            }
         }
     }
 }
