@@ -44,7 +44,7 @@ namespace PoGo.PokeMobBot.GUI
             textboxStatusPositionDescriptionData.Text = "Not Running";
             textblockStatusLog.Text = "Application Started: " + DateTime.Now.ToString();
             labelStatusRuntimeData.Content = "00:00:00.00";
-            
+
 #if POKEMOBBOT
             var settingsGlobal = GlobalSettings.Load("");            
 
@@ -57,7 +57,7 @@ namespace PoGo.PokeMobBot.GUI
             enableControls(false);
             enableControls(true);
 
-            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);            
+            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);
         }
 
 #if POKEMOBBOT
@@ -177,12 +177,12 @@ namespace PoGo.PokeMobBot.GUI
         {
             gridRecycleFilter.IsEnabled = value;
             gridSetup.IsEnabled = value;
-            
+
             gridMoreSetup.IsEnabled = value;
             gridExceptions.IsEnabled = value;
             gridKeepAndEvolve.IsEnabled = value;
             gridSnipeFilter.IsEnabled = value;
-            gridTransferFilters.IsEnabled = value;            
+            gridTransferFilters.IsEnabled = value;
 
             buttonApply.IsEnabled = value;
             buttonExit.IsEnabled = value;

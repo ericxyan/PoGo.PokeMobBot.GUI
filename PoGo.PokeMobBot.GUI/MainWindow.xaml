@@ -90,7 +90,23 @@
             </TabItem>
             <TabItem Header="Setup">
                 <TabControl x:Name="tabSetupTabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" TabStripPlacement="Left">
-                    <TabItem Header="Primary" Height="24" VerticalAlignment="Top">
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="HeaderTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <ContentPresenter Content="{TemplateBinding Content}">
+                                            <ContentPresenter.LayoutTransform>
+                                                <RotateTransform Angle="90" />
+                                            </ContentPresenter.LayoutTransform>
+                                        </ContentPresenter>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Padding" Value="3" />
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem Header="Basic" Height="24" VerticalAlignment="Top">
                         <Grid x:Name="gridSetup" Background="white">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -250,7 +266,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="More controls">
+                    <TabItem Header="Advanced">
                         <Grid x:Name="gridMoreSetup" Background="white">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -512,7 +528,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Transfer Filters">
+                    <TabItem Header="Transfer Filter">
                         <Grid x:Name="gridTransferFilters" Background="white">
                             <ListView x:Name="listviewTransferFilter" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
                                 <ListView.View>
@@ -590,8 +606,8 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-          
-            
+
+
         </TabControl>
         <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10,0,10,5">
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,0">
