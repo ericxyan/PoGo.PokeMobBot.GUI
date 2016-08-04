@@ -36,7 +36,7 @@ namespace PoGo.PokeMobBot.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Boolean initialized = false;
+        Boolean GUIinitialized = false;
 
         public MainWindow()
         {
@@ -44,8 +44,7 @@ namespace PoGo.PokeMobBot.GUI
             textboxStatusPositionDescriptionData.Text = "Not Running";
             textblockStatusLog.Text = "Application Started: " + DateTime.Now.ToString();
             labelStatusRuntimeData.Content = "00:00:00.00";
-            initialized = true;
-
+            
 #if POKEMOBBOT
             var settingsGlobal = GlobalSettings.Load("");            
 
@@ -58,8 +57,7 @@ namespace PoGo.PokeMobBot.GUI
             enableControls(false);
             enableControls(true);
 
-            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);
-            
+            MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);            
         }
 
 #if POKEMOBBOT
@@ -157,7 +155,7 @@ namespace PoGo.PokeMobBot.GUI
 
         private void comboboxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (initialized == false)         // we have to make this check because the combobox gets change gets called before the combobox is initialized
+            if (GUIinitialized == false)         // we have to make this check because the combobox gets change gets called before the combobox is initialized
                 return;
 
             if (sender == comboboxAuthType)
@@ -244,7 +242,7 @@ namespace PoGo.PokeMobBot.GUI
         // this is a bit of a odd thing to do but I didn't want to replicate the code for enabling/disabling
         private void checkboxIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (initialized == false)
+            if (GUIinitialized == false)
                 return;
 
             checkboxChanged(sender, null);
@@ -252,7 +250,7 @@ namespace PoGo.PokeMobBot.GUI
 
         private void checkboxChanged(object sender, RoutedEventArgs e)
         {
-            if (initialized == false)  // we have to do this because we get a call with a null object on startup
+            if (GUIinitialized == false)  // we have to do this because we get a call with a null object on startup
                 return;
 
             if (sender == checkboxUseGpxPathing)
@@ -345,7 +343,15 @@ namespace PoGo.PokeMobBot.GUI
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
+        }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            GUIinitialized = true;
         }
     }
 }
