@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoGo.PokeMobBot.GUI"
         mc:Ignorable="d"
+        ContentRendered="Window_ContentRendered"
         Title="PoGo.PokeMobBot" Height="600" Width="800" MinWidth="800" MinHeight="600">
     <Grid>
         <Grid.RowDefinitions>
@@ -60,7 +61,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" x:Name="labelStatusPositionDescription" Content="Description" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-                            <TextBox Grid.Column="1" x:Name="textboxStatusPositionDescriptionData" Height="23" Margin="0,0,0,0" TextWrapping="NoWrap"  Text="This will be the name of the target location that the bot is walking to" VerticalAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Stretch" />
+                            <TextBox Grid.Column="1" x:Name="textboxStatusPositionDescriptionData" Height="23" Margin="0,0,0,0" TextWrapping="NoWrap"  Text="This will be the name of the target location that the bot is walking to" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -193,24 +194,24 @@
                             <GroupBox Grid.Row="0" x:Name="groupboxAutoRenaming" Header="Auto Renaming" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                                 <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch">
                                     <CheckBox x:Name="checkboxRenamePokemon" Content="Rename Pokemon" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                    <CheckBox x:Name="checkboxRenameAboveIv" Content="Rename Above Keep Min IV Percentage" HorizontalAlignment="Left" Margin="14,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                                    <Label x:Name="labelRenameTemplate" Content="Rename Template" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabled="False"/>
-                                    <TextBox x:Name="textboxRenameTemplate" HorizontalAlignment="Left" Height="23" Margin="260,35,4,0" Text="{}{0}_{1}" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                                    <CheckBox x:Name="checkboxRenameAboveIv" Content="Rename Above Keep Min IV Percentage" HorizontalAlignment="Left" Margin="14,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="labelRenameTemplate" Content="Rename Template" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxRenameTemplate" HorizontalAlignment="Left" Height="23" Margin="260,35,4,0" Text="{}{0}_{1}" VerticalAlignment="Top" Width="80"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox Grid.Row="1" x:Name="groupBox3" Header="Lucky Eggs" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch">
                                 <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top">
                                     <CheckBox x:Name="checkboxUseLuckyEggsWhileEvolving" Content="Use Lucky Eggs While Evolving" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                    <Label x:Name="labelUseLuckyEggsMinPokemonAmount" Content="Use Lucky Eggs Min Pokemon Amount" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
-                                    <TextBox x:Name="textboxUseLuckyEggsMinPokemonAmount" HorizontalAlignment="Left" Height="23" Margin="260,19,04,0" Text="30" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                                    <Label x:Name="labelUseLuckyEggsMinPokemonAmount" Content="Use Lucky Eggs Min Pokemon Amount" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxUseLuckyEggsMinPokemonAmount" HorizontalAlignment="Left" Height="23" Margin="260,19,04,0" Text="30" VerticalAlignment="Top" Width="80"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox Grid.Row="2" x:Name="groupGpxPathing" Header="GPX Pathing" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch">
                                 <Grid HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top">
                                     <CheckBox x:Name="checkboxUseGpxPathing" Content="Use Gpx Pathing" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
-                                    <Label x:Name="labelGpxFile" Content="Gpx File Name" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
-                                    <TextBox x:Name="textboxGpxFile" HorizontalAlignment="Left" Height="23" Margin="99,16,0,0" Text="" VerticalAlignment="Top" Width="215" IsEnabled="False"/>
-                                    <Button x:Name="buttonGpxFilePicker" Content="..." HorizontalAlignment="Left" Margin="322,18,4,0" VerticalAlignment="Top" Width="18" IsEnabled="False" Click="buttonFilenamePicker_Click"/>
+                                    <Label x:Name="labelGpxFile" Content="Gpx File Name" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <TextBox x:Name="textboxGpxFile" HorizontalAlignment="Left" Height="23" Margin="99,16,0,0" Text="" VerticalAlignment="Top" Width="215" />
+                                    <Button x:Name="buttonGpxFilePicker" Content="..." HorizontalAlignment="Left" Margin="322,18,4,0" VerticalAlignment="Top" Width="18" Click="buttonFilenamePicker_Click"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox Grid.Row="3" x:Name="groupboxFavorites" Header="Auto Favorites" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,0">
@@ -511,7 +512,7 @@
                             </GroupBox>
                             <GroupBox x:Name="groupboxLocationServer" Header="Location Server" HorizontalAlignment="Right" Margin="0,10,10,10" VerticalAlignment="Top">
                                 <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" >
-                                    <CheckBox x:Name="checkboxUseSnipeLocationServer" Content="Use Snipe Location Server" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" FontWeight="Bold" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                    <CheckBox x:Name="checkboxUseSnipeLocationServer" Content="Use Snipe Location Server" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
                                     <Label x:Name="labelSnipeLocationServer" Content="Snipe Location Server" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <TextBox x:Name="textboxSnipeLocationServer" HorizontalAlignment="Left" Height="23" Margin="160,27,4,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="60"/>
                                     <Label x:Name="labelSnipeLocationServerPort" Content="Snipe Location Server Port" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -548,8 +549,8 @@
         <Grid Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10,0,10,5">
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,0">
                 <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick"/>
-                <Button x:Name="buttonContinue" Content="Continue" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False" />
-                <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" IsEnabled="False" />
+                <Button x:Name="buttonContinue" Content="Continue" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" />
+                <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonClick" />
             </Grid>
             <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,0">
                 <Label x:Name="labelStatusRuntime" Content="Runtime" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
