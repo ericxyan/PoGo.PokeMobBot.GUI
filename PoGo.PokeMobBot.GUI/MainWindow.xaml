@@ -8,8 +8,24 @@
         ContentRendered="Window_ContentRendered"
         Initialized="Window_Initialized"
         Loaded="Window_Loaded"
-
-        Title="PoGo.PokeMobBot" Height="600" Width="800" MinWidth="800" MinHeight="600">
+        Title="PoGo.PokeMobBot" 
+        Height="600" 
+        Width="800" 
+        MinWidth="800" 
+        MinHeight="600">
+    <Window.Resources>
+        <DataTemplate x:Key="TabItemHeaderTemplate">
+            <Grid>
+                <ContentPresenter Content="{TemplateBinding Content}" RenderTransformOrigin="0.5,0.5">
+                    <ContentPresenter.LayoutTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="-90"/>
+                        </TransformGroup>
+                    </ContentPresenter.LayoutTransform>
+                </ContentPresenter>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -87,7 +103,7 @@
             </TabItem>
             <TabItem Header="Setup">
                 <TabControl x:Name="tabSetupTabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" TabStripPlacement="Left">
-                    <TabItem Header="1" Height="24" VerticalAlignment="Top">
+                    <TabItem Header="Primary" VerticalAlignment="Top" HorizontalAlignment="Stretch" HeaderTemplate="{DynamicResource TabItemHeaderTemplate}" >
                         <Grid x:Name="gridSetup" Background="white">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -247,7 +263,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="2">
+                    <TabItem Header="Secondary" VerticalAlignment="Top" HorizontalAlignment="Stretch" HeaderTemplate="{DynamicResource TabItemHeaderTemplate}" >
                         <Grid x:Name="gridMoreSetup" Background="white">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
