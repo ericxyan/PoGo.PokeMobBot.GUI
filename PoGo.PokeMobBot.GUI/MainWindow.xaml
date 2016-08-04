@@ -97,7 +97,7 @@
                                     <DataTemplate>
                                         <ContentPresenter Content="{TemplateBinding Content}">
                                             <ContentPresenter.LayoutTransform>
-                                                <RotateTransform Angle="270" />
+                                                <RotateTransform Angle="90" />
                                             </ContentPresenter.LayoutTransform>
                                         </ContentPresenter>
                                     </DataTemplate>
@@ -106,7 +106,7 @@
                             <Setter Property="Padding" Value="3" />
                         </Style>
                     </TabControl.Resources>
-                    <TabItem Header="Primary" Height="24" VerticalAlignment="Top">
+                    <TabItem Header="Basic" Height="24" VerticalAlignment="Top">
                         <Grid x:Name="gridSetup" Background="white">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -266,7 +266,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="More controls">
+                    <TabItem Header="Advanced">
                         <Grid x:Name="gridMoreSetup" Background="white">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -528,7 +528,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Transfer Filters">
+                    <TabItem Header="Transfer Filter">
                         <Grid x:Name="gridTransferFilters" Background="white">
                             <ListView x:Name="listviewTransferFilter" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
                                 <ListView.View>
