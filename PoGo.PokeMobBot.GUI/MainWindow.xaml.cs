@@ -1,10 +1,11 @@
 ﻿#region usingdirectives
 
+// generic stuff
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,21 +16,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+// GUI unique stuff
 using System.IO;
 using Microsoft.Win32;
 
+// integration with PokeMobBot mainline
 #if POKEMOBBOT
-using System.Threading;
 using PoGo.PokeMobBot.Logic;
 using PoGo.PokeMobBot.CLI;
 using PokemonGo.RocketAPI;
-using PoGo.PokeMobBot.Logic.Common;
-using PoGo.PokeMobBot.Logic.Event;
-using PoGo.PokeMobBot.Logic.Logging;
-using PoGo.PokeMobBot.Logic.State;
-using PoGo.PokeMobBot.Logic.Tasks;
-using PoGo.PokeMobBot.Logic.Utils;
-#endif
+#endif   // if POKEMOBBOT
 
 #endregion
 
@@ -40,7 +36,7 @@ namespace PoGo.PokeMobBot.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Boolean initialized = false;
+        Boolean GUIinitialized = false;
 
         public MainWindow()
         {
@@ -48,7 +44,6 @@ namespace PoGo.PokeMobBot.GUI
             textboxStatusPositionDescriptionData.Text = "Not Running";
             textblockStatusLog.Text = "Application Started: " + DateTime.Now.ToString();
             labelStatusRuntimeData.Content = "00:00:00.00";
-            initialized = true;
 
 #if POKEMOBBOT
             var settingsGlobal = GlobalSettings.Load("");            
@@ -57,12 +52,10 @@ namespace PoGo.PokeMobBot.GUI
 #endif
 
             tooltipsInitialize();                                           // Read the tooltips translation file
-            initializeGlobalButtons();                                      // set the current state
 
             // cycle the controls to synchronize everything
             enableControls(false);
             enableControls(true);
-            //
 
             MessageBoxResult messageboxExit = MessageBox.Show("This is a concept project.  It is not a functional part of the PokeMobBot project and is unrelated to the PokeMobBot project.  It is intended to be a GUI idea offered to the PokeMobBot project.  The buttons are interconnected but they are for display purposes only.", "This project is a concept only", MessageBoxButton.OK);
         }
@@ -127,7 +120,7 @@ namespace PoGo.PokeMobBot.GUI
             // we are going to do this in code so that we are prepared for a change to another language through translations
             // putting these in statically just to demonstrate the idea
             buttonStart.ToolTip = "Start the Pokemon Bot from the location in the Settings tab";
-            buttonContinue.ToolTip = "Start at the Longitude/Latitude where the Pokemon Bot previously stopped";
+            buttonContinue.ToolTip = "Start at the Longitude/Latitude where the Pokemon Bot previously stopped or the initial starting point in the setup page";
             buttonStop.ToolTip = "Stop/Pause the Pokemon Bot";
             buttonApply.ToolTip = "Apply setting changes to persistent configuration .json files";
             buttonExit.ToolTip = "Exit the Pokemon Bot";
@@ -148,14 +141,8 @@ namespace PoGo.PokeMobBot.GUI
             labelLongitude.ToolTip = "Longitude that the bot starts at. Must be between -180 and 180 values";
             labelWalkingSpeedInKilometerPerHour.ToolTip = "Walking speed in kilometers per hour.  Recomment setting to something that a human could perform (i.e. between 5 and 20)";
             labelMaxTravelDistanceInMeters.ToolTip = "How far the bot will travel in a radius from the original default location (in meters)";
-
-
         }
 
-        private void radiobuttonChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void buttonFilenamePicker_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -168,7 +155,7 @@ namespace PoGo.PokeMobBot.GUI
 
         private void comboboxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (initialized == false)         // we have to make this check because the combobox gets change gets called before the combobox is initialized
+            if (GUIinitialized == false)         // we have to make this check because the combobox gets change gets called before the combobox is initialized
                 return;
 
             if (sender == comboboxAuthType)
@@ -190,26 +177,18 @@ namespace PoGo.PokeMobBot.GUI
         {
             gridRecycleFilter.IsEnabled = value;
             gridSetup.IsEnabled = value;
+
             gridMoreSetup.IsEnabled = value;
             gridExceptions.IsEnabled = value;
-            gridExceptionsToKeep.IsEnabled = value;
+            gridKeepAndEvolve.IsEnabled = value;
             gridSnipeFilter.IsEnabled = value;
-            gridNotToCatchFilter.IsEnabled = value;
             gridTransferFilters.IsEnabled = value;
+
             buttonApply.IsEnabled = value;
             buttonExit.IsEnabled = value;
             buttonStart.IsEnabled = value;
             buttonContinue.IsEnabled = value;
             buttonStop.IsEnabled = (value == false);
-        }
-
-        private void initializeGlobalButtons()
-        {
-            buttonStart.IsEnabled = true;
-            buttonStop.IsEnabled = false;
-            buttonContinue.IsEnabled = true;
-            buttonApply.IsEnabled = false;
-            buttonExit.IsEnabled = true;
         }
 
         private void buttonClick(object sender, RoutedEventArgs e)
@@ -249,9 +228,9 @@ namespace PoGo.PokeMobBot.GUI
             }
             else if (sender == buttonStop)
             {
-                buttonStop.IsEnabled = false;
-                buttonStart.IsEnabled = true;
-                buttonContinue.IsEnabled = true;
+                // buttonStop.IsEnabled = false;
+                // buttonStart.IsEnabled = true;
+                // buttonContinue.IsEnabled = true;
 
                 // kill the main thread.
                 // then enable the controls
@@ -263,7 +242,7 @@ namespace PoGo.PokeMobBot.GUI
         // this is a bit of a odd thing to do but I didn't want to replicate the code for enabling/disabling
         private void checkboxIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (initialized == false)
+            if (GUIinitialized == false)
                 return;
 
             checkboxChanged(sender, null);
@@ -271,167 +250,108 @@ namespace PoGo.PokeMobBot.GUI
 
         private void checkboxChanged(object sender, RoutedEventArgs e)
         {
-            if (initialized == false)  // we have to do this because we get a call with a null object on startup
+            if (GUIinitialized == false)  // we have to do this because we get a call with a null object on startup
                 return;
 
             if (sender == checkboxUseGpxPathing)
             {
-                if (checkboxUseGpxPathing.IsChecked == false || checkboxUseGpxPathing.IsEnabled == false)
-                {
-                    labelGpxFile.IsEnabled = false;
-                    textboxGpxFile.IsEnabled = false;
-                    buttonGpxFilePicker.IsEnabled = false;
-                }
-                else
-                {
-                    labelGpxFile.IsEnabled = true;
-                    textboxGpxFile.IsEnabled = true;
-                    buttonGpxFilePicker.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxUseGpxPathing.IsChecked == true && checkboxUseGpxPathing.IsEnabled == true);
+                labelGpxFile.IsEnabled = enabled;
+                textboxGpxFile.IsEnabled = enabled;
+                buttonGpxFilePicker.IsEnabled = enabled;
             }
             else if (sender == checkboxRenameAboveIv)
             {
-                if (checkboxRenameAboveIv.IsChecked == false || checkboxRenameAboveIv.IsEnabled == false)
-                {
-                    textboxRenameTemplate.IsEnabled = false;
-                    labelRenameTemplate.IsEnabled = false;
-                }
-                else
-                {
-                    textboxRenameTemplate.IsEnabled = true;
-                    labelRenameTemplate.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxRenameAboveIv.IsChecked == true && checkboxRenameAboveIv.IsEnabled == true);
+                textboxRenameTemplate.IsEnabled = enabled;
+                labelRenameTemplate.IsEnabled = enabled;
             }
             else if (sender == checkboxTransferDuplicatePokemon)
             {
-                if (checkboxTransferDuplicatePokemon.IsChecked == false || checkboxTransferDuplicatePokemon.IsEnabled == false)
-                {
-                    checkboxPrioritizeIvOverCP.IsEnabled = false;
-                    checkboxPrioritizeIvOverCP.FontWeight = FontWeights.Normal;
-                }
-                else
-                {
-                    checkboxPrioritizeIvOverCP.IsEnabled = true;
-                    checkboxPrioritizeIvOverCP.FontWeight = FontWeights.Bold;
-                }
+                Boolean enabled = (checkboxTransferDuplicatePokemon.IsChecked == true && checkboxTransferDuplicatePokemon.IsEnabled == true);
+                checkboxPrioritizeIvOverCP.IsEnabled = false;
+                checkboxPrioritizeIvOverCP.FontWeight = (enabled ? FontWeights.Bold : FontWeights.Normal);
+                textboxPokemonsNotToTransfer.IsEnabled = false;
             }
             else if (sender == checkboxUseLuckyEggsWhileEvolving)
             {
-                if (checkboxUseLuckyEggsWhileEvolving.IsChecked == false || checkboxUseLuckyEggsWhileEvolving.IsEnabled == false)
-                {
-                    textboxUseLuckyEggsMinPokemonAmount.IsEnabled = false;
-                    labelUseLuckyEggsMinPokemonAmount.IsEnabled = false;
-                }
-                else
-                {
-                    textboxUseLuckyEggsMinPokemonAmount.IsEnabled = true;
-                    labelUseLuckyEggsMinPokemonAmount.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxUseLuckyEggsWhileEvolving.IsChecked == true && checkboxUseLuckyEggsWhileEvolving.IsEnabled == true);
+                textboxUseLuckyEggsMinPokemonAmount.IsEnabled = enabled;
+                labelUseLuckyEggsMinPokemonAmount.IsEnabled = enabled;
             }
             else if (sender == checkboxRenamePokemon)
             {
-                if (checkboxRenamePokemon.IsChecked == false || checkboxRenamePokemon.IsEnabled == false)
-                {
-                    checkboxRenameAboveIv.IsEnabled = false;
-                    checkboxRenameAboveIv.FontWeight = FontWeights.Normal;
-                    textboxRenameTemplate.IsEnabled = false;
-                    labelRenameTemplate.IsEnabled = false;
-                }
-                else
-                {
-                    checkboxRenameAboveIv.IsEnabled = true;
-                    checkboxRenameAboveIv.FontWeight = FontWeights.Bold;
-                    textboxRenameTemplate.IsEnabled = true;
-                    labelRenameTemplate.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxRenamePokemon.IsChecked == true && checkboxRenamePokemon.IsEnabled == true);
+                checkboxRenameAboveIv.IsEnabled = enabled;
+                checkboxRenameAboveIv.FontWeight = (enabled ? FontWeights.Bold : FontWeights.Normal);
+                textboxRenameTemplate.IsEnabled = enabled;
+                labelRenameTemplate.IsEnabled = enabled;
             }
             else if (sender == checkboxSnipeAtPokestops)
             {
-                if (checkboxSnipeAtPokestops.IsChecked == false || checkboxSnipeAtPokestops.IsEnabled == false)
-                {
-                    checkboxIgnoreUnknownIv.IsEnabled = false;
-                    checkboxUseTransferIvForSnipe.IsEnabled = false;
-                    labelMinDelayBetweenSnipes.IsEnabled = false;
-                    textboxMinDelayBetweenSnipes.IsEnabled = false;
-                    labelDelaySnipePokemon.IsEnabled = false;
-                    textboxDelaySnipePokemon.IsEnabled = false;
-                    labelMinPokeyballsToSnipe.IsEnabled = false;
-                    textboxMinPokeballsToSnipe.IsEnabled = false;
-                    labelMinPokeballsWhileSnipe.IsEnabled = false;
-                    textboxMinPokeballsWhileSnipe.IsEnabled = false;
-                    checkboxUseSnipeLocationServer.IsEnabled = false;
-                    listviewPokemonToSnipe.IsEnabled = false;
-                    textboxPokemonToSnipe.IsEnabled = false;
-                }
-                else
-                {
-                    checkboxIgnoreUnknownIv.IsEnabled = true;
-                    checkboxUseTransferIvForSnipe.IsEnabled = true;
-                    labelMinDelayBetweenSnipes.IsEnabled = true;
-                    textboxMinDelayBetweenSnipes.IsEnabled = true;
-                    labelDelaySnipePokemon.IsEnabled = true;
-                    textboxDelaySnipePokemon.IsEnabled = true;
-                    labelMinPokeyballsToSnipe.IsEnabled = true;
-                    textboxMinPokeballsToSnipe.IsEnabled = true;
-                    labelMinPokeballsWhileSnipe.IsEnabled = true;
-                    textboxMinPokeballsWhileSnipe.IsEnabled = true;
-                    checkboxUseSnipeLocationServer.IsEnabled = true;
-                    listviewPokemonToSnipe.IsEnabled = true;
-                    textboxPokemonToSnipe.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxSnipeAtPokestops.IsChecked == true && checkboxSnipeAtPokestops.IsEnabled == true);
+                checkboxIgnoreUnknownIv.IsEnabled = enabled;
+                checkboxUseTransferIvForSnipe.IsEnabled = enabled;
+                labelMinDelayBetweenSnipes.IsEnabled = enabled;
+                textboxMinDelayBetweenSnipes.IsEnabled = enabled;
+                labelDelaySnipePokemon.IsEnabled = enabled;
+                textboxDelaySnipePokemon.IsEnabled = enabled;
+                labelMinPokeyballsToSnipe.IsEnabled = enabled;
+                textboxMinPokeballsToSnipe.IsEnabled = enabled;
+                labelMinPokeballsWhileSnipe.IsEnabled = enabled;
+                textboxMinPokeballsWhileSnipe.IsEnabled = enabled;
+                checkboxUseSnipeLocationServer.IsEnabled = enabled;
+                listviewPokemonToSnipe.IsEnabled = enabled;
+                textboxPokemonToSnipe.IsEnabled = enabled;
             }
             else if (sender == checkboxUseSnipeLocationServer)
             {
-                if (checkboxUseSnipeLocationServer.IsChecked == false || checkboxUseSnipeLocationServer.IsEnabled == false)
-                {
-                    labelSnipeLocationServer.IsEnabled = false;
-                    textboxSnipeLocationServer.IsEnabled = false;
-                    labelSnipeLocationServerPort.IsEnabled = false;
-                    textboxSnipeLocationServerPort.IsEnabled = false;
-                }
-                else
-                {
-                    labelSnipeLocationServer.IsEnabled = true;
-                    textboxSnipeLocationServer.IsEnabled = true;
-                    labelSnipeLocationServerPort.IsEnabled = true;
-                    textboxSnipeLocationServerPort.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxUseSnipeLocationServer.IsChecked == true && checkboxUseSnipeLocationServer.IsEnabled == true);
+                labelSnipeLocationServer.IsEnabled = enabled;
+                textboxSnipeLocationServer.IsEnabled = enabled;
+                labelSnipeLocationServerPort.IsEnabled = enabled;
+                textboxSnipeLocationServerPort.IsEnabled = enabled;
             }
             else if (sender == checkboxEvolveAllPokemonAboveIv)
             {
-                if (checkboxEvolveAllPokemonAboveIv.IsChecked == false || checkboxEvolveAllPokemonAboveIv.IsEnabled == false)
-                {
-                    labelEvolveAboveIvValue.IsEnabled = false;
-                    textboxEvolveAboveIvValue.IsEnabled = false;
-                }
-                else
-                {
-                    labelEvolveAboveIvValue.IsEnabled = true;
-                    textboxEvolveAboveIvValue.IsEnabled = true;
-
-                }
+                Boolean enabled = (checkboxEvolveAllPokemonAboveIv.IsChecked == true && checkboxEvolveAllPokemonAboveIv.IsEnabled == true);
+                labelEvolveAboveIvValue.IsEnabled = enabled;
+                textboxEvolveAboveIvValue.IsEnabled = enabled;
             }
             else if (sender == checkboxHumanizeThrows)
             {
-                if (checkboxHumanizeThrows.IsChecked == false || checkboxHumanizeThrows.IsEnabled == false)
-                {
-                    labelThrowAccuracyMin.IsEnabled = false;
-                    textboxThrowAccuracyMin.IsEnabled = false;
-                    labelThrowAccuracyMax.IsEnabled = false;
-                    textboxThrowAccuracyMax.IsEnabled = false;
-                    labelThrowSpinFrequency.IsEnabled = false;
-                    textboxThrowSpinFrequency.IsEnabled = false;
-                }
-                else
-                {
-                    labelThrowAccuracyMin.IsEnabled = true;
-                    textboxThrowAccuracyMin.IsEnabled = true;
-                    labelThrowAccuracyMax.IsEnabled = true;
-                    textboxThrowAccuracyMax.IsEnabled = true;
-                    labelThrowSpinFrequency.IsEnabled = true;
-                    textboxThrowSpinFrequency.IsEnabled = true;
-                }
+                Boolean enabled = (checkboxHumanizeThrows.IsChecked == true && checkboxHumanizeThrows.IsEnabled == true);
+                labelThrowAccuracyMin.IsEnabled = enabled;
+                textboxThrowAccuracyMin.IsEnabled = enabled;
+                labelThrowAccuracyMax.IsEnabled = enabled;
+                textboxThrowAccuracyMax.IsEnabled = enabled;
+                labelThrowSpinFrequency.IsEnabled = enabled;
+                textboxThrowSpinFrequency.IsEnabled = enabled;
             }
+            else if (sender == checkboxUsePokemonNotToCatchFilter)
+            {
+                Boolean enabled = (checkboxUsePokemonNotToCatchFilter.IsChecked == true && checkboxUsePokemonNotToCatchFilter.IsEnabled == true);
+                listboxPokemonsToIgnore.IsEnabled = enabled;
+            }
+            else if (sender == checkboxAutoFavoritePokemon)
+            {
+                Boolean enabled = (checkboxAutoFavoritePokemon.IsChecked == true && checkboxAutoFavoritePokemon.IsEnabled == true);
+                labelFavoriteMinIvPercentage.IsEnabled = enabled;
+                textboxFavoriteMinIvPercentage.IsEnabled = enabled;
+            }
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            GUIinitialized = true;
         }
     }
 }
