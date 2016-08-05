@@ -97,7 +97,7 @@
                                     <DataTemplate>
                                         <ContentPresenter Content="{TemplateBinding Content}">
                                             <ContentPresenter.LayoutTransform>
-                                                <RotateTransform Angle="90" />
+                                                <RotateTransform Angle="270" />
                                             </ContentPresenter.LayoutTransform>
                                         </ContentPresenter>
                                     </DataTemplate>
@@ -106,7 +106,7 @@
                             <Setter Property="Padding" Value="3" />
                         </Style>
                     </TabControl.Resources>
-                    <TabItem Header="Basic" Height="24" VerticalAlignment="Top">
+                    <TabItem Header="Basic" >
                         <Grid x:Name="gridSetup" Background="white">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
