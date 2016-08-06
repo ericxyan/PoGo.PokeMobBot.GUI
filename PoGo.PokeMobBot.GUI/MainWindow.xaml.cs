@@ -63,55 +63,50 @@ namespace PoGo.PokeMobBot.GUI
 #if POKEMOBBOT
         private void initializeSettings(GlobalSettings settings)
         {
-            textboxLongitude.Text = settings.DefaultLongitude.ToString();
-            textboxLatitude.Text = settings.DefaultLatitude.ToString();
-            textboxAltitude.Text = settings.DefaultAltitude.ToString();
-            checkboxUpdateWarning.IsChecked = settings.AutoUpdate;
-            textboxDelayBetweenPlayerActions.Text = settings.DelayBetweenPlayerActions.ToString();
-            textboxDelayBetweenPokemonCatch.Text = settings.DelayBetweenPokemonCatch.ToString();
-            textboxMaxTravelDistanceInMeters.Text = settings.MaxTravelDistanceInMeters.ToString();
-            textboxWalkingSpeedInKilometerPerHour.Text = settings.WalkingSpeedInKilometerPerHour.ToString();
-            textboxKeepMinCp.Text = settings.KeepMinCp.ToString();
-            textboxKeepMinDuplicatePokemon.Text = settings.KeepMinDuplicatePokemon.ToString();
-            textboxKeepMinIvPercentage.Text = settings.KeepMinIvPercentage.ToString();
-            textboxMaxBallsPerPokemon.Text = settings.MaxPokeballsPerPokemon.ToString();
-            textboxUseGreatBallAboveIv.Text = settings.UseGreatBallAboveIv.ToString();
-            textboxUseMasterBallAboveIv.Text = "";
-            textboxUseUltraBallAboveIv.Text = "";
-            checkboxUseEggIncubators.IsChecked = settings.UseEggIncubators;
-            checkboxAutoFavoritePokemon.IsChecked = settings.AutoFavoritePokemon;
-            checkboxTransferDuplicatePokemon.IsChecked = settings.TransferDuplicatePokemon;
-            checkboxPrioritizeIvOverCP.IsChecked = settings.PrioritizeIvOverCp;
-            checkboxKeepPokemonsThatCanEvolve.IsChecked = settings.KeepPokemonsThatCanEvolve;
-            checkboxEvolveAllPokemonWithEnoughCandy.IsChecked = settings.EvolveAllPokemonWithEnoughCandy;
-            checkboxEvolveAllPokemonAboveIv.IsChecked = settings.EvolveAllPokemonAboveIv;
-            textboxEvolveAboveIvValue.Text = settings.EvolveAboveIvValue.ToString();
-            checkboxRenamePokemon.IsChecked = settings.RenamePokemon;
-            checkboxRenameAboveIv.IsChecked = settings.RenameOnlyAboveIv;
-            textboxRenameTemplate.Text = settings.RenameTemplate.ToString();
-            checkboxUseGpxPathing.IsChecked = settings.UseGpxPathing;
-            textboxGpxFile.Text = settings.GpxFile.ToString();
-            checkboxUseLuckyEggsWhileEvolving.IsChecked = settings.UseLuckyEggsWhileEvolving;
-            textboxUseLuckyEggsMinPokemonAmount.Text = settings.UseLuckyEggsMinPokemonAmount.ToString();
-            textboxMaxSpawnLocationOffset.Text = settings.MaxSpawnLocationOffset.ToString();
-            if (settings.LevelUpByCPorIv.CompareTo("cp") == 0)
+            textboxLongitude.Text = settings.LocationSettings.DefaultLongitude.ToString();
+            textboxLatitude.Text = settings.LocationSettings.DefaultLatitude.ToString();
+            textboxAltitude.Text = settings.LocationSettings.DefaultAltitude.ToString();
+            checkboxUpdateWarning.IsChecked = settings.StartUpSettings.AutoUpdate;
+            textboxDelayBetweenPlayerActions.Text = settings.DelaySettings.DelayBetweenPlayerActions.ToString();
+            textboxDelayBetweenPokemonCatch.Text = settings.DelaySettings.DelayBetweenPokemonCatch.ToString();
+            textboxMaxTravelDistanceInMeters.Text = settings.LocationSettings.MaxTravelDistanceInMeters.ToString();
+            textboxWalkingSpeedInKilometerPerHour.Text = settings.LocationSettings.WalkingSpeedInKilometerPerHour.ToString();
+            textboxKeepMinCp.Text = settings.PokemonSettings.KeepMinCp.ToString();
+            textboxKeepMinDuplicatePokemon.Text = settings.PokemonSettings.KeepMinDuplicatePokemon.ToString();
+            textboxKeepMinIvPercentage.Text = settings.PokemonSettings.KeepMinIvPercentage.ToString();
+            textboxMaxBallsPerPokemon.Text = settings.CatchSettings.MaxPokeballsPerPokemon.ToString();
+            textboxUseGreatBallAboveIv.Text = settings.CatchSettings.UseGreatBallAboveIv.ToString();
+            checkboxUseEggIncubators.IsChecked = settings.PokemonSettings.UseEggIncubators;
+            checkboxAutoFavoritePokemon.IsChecked = settings.PokemonSettings.AutoFavoritePokemon;
+            checkboxTransferDuplicatePokemon.IsChecked = settings.PokemonSettings.TransferDuplicatePokemon;
+            checkboxPrioritizeIvOverCP.IsChecked = settings.PokemonSettings.PrioritizeIvOverCp;
+            checkboxKeepPokemonsThatCanEvolve.IsChecked = settings.PokemonSettings.KeepPokemonsThatCanEvolve;
+            checkboxEvolveAllPokemonWithEnoughCandy.IsChecked = settings.PokemonSettings.EvolveAllPokemonWithEnoughCandy;
+            checkboxEvolveAllPokemonAboveIv.IsChecked = settings.PokemonSettings.EvolveAllPokemonAboveIv;
+            textboxEvolveAboveIvValue.Text = settings.PokemonSettings.EvolveAboveIvValue.ToString();
+            checkboxRenamePokemon.IsChecked = settings.PokemonSettings.RenamePokemon;
+            checkboxRenameAboveIv.IsChecked = settings.PokemonSettings.RenameOnlyAboveIv;
+            textboxRenameTemplate.Text = settings.PokemonSettings.RenameTemplate.ToString();
+            checkboxUseGpxPathing.IsChecked = settings.LocationSettings.UseGpxPathing;
+            textboxGpxFile.Text = settings.LocationSettings.GpxFile.ToString();
+            checkboxUseLuckyEggsWhileEvolving.IsChecked = settings.PokemonSettings.UseLuckyEggsWhileEvolving;
+            textboxUseLuckyEggsMinPokemonAmount.Text = settings.PokemonSettings.UseLuckyEggsMinPokemonAmount.ToString();
+            textboxMaxSpawnLocationOffset.Text = settings.LocationSettings.MaxSpawnLocationOffset.ToString();
+            if (settings.PokemonSettings.LevelUpByCPorIv.CompareTo("cp") == 0)
                 comboboxLevelUpByCPorIV.SelectedItem = comboboxLevelUpByCPorIV_CP;
             else
                 comboboxLevelUpByCPorIV.SelectedItem = comboboxLevelUpByCPorIV_IV;
-            textboxUpgradePokemonCpMinimum.Text = settings.UpgradePokemonCpMinimum.ToString();
-            textboxUpgradePokemonIvMinimum.Text = settings.UpgradePokemonIvMinimum.ToString();
-            textboxUseBerryMinCp.Text = settings.UseBerryMinCp.ToString();
-            textboxUseBerryMinIv.Text = settings.UseBerryMinIv.ToString();
-            textboxUseGreatBallBelowCatchProbability.Text = settings.UseGreatBallBelowCatchProbability.ToString();
-            textboxUseUltraBallAboveIv.Text = settings.UseUltraBallBelowCatchProbability.ToString();
-            textboxUseMasterBallBelowCatchProbability.Text = settings.UseMasterBallBelowCatchProbability.ToString();
-            textboxFavoriteMinIvPercentage.Text = settings.FavoriteMinIvPercentage.ToString();
-            checkboxHumanizeThrows.IsChecked = settings.HumanizeThrows;
-            textboxThrowAccuracyMin.Text = settings.ThrowAccuracyMin.ToString();
-            textboxThrowAccuracyMax.Text = settings.ThrowAccuracyMax.ToString();
-            textboxThrowSpinFrequency.Text = settings.ThrowSpinFrequency.ToString();
-            textboxUseBerryBelowCatchProbability.Text = settings.UseBerryBelowCatchProbability.ToString();
-            textboxRecycleInventoryAtUsagePercentage.Text = settings.RecycleInventoryAtUsagePercentage.ToString();
+            textboxUpgradePokemonCpMinimum.Text = settings.PokemonSettings.UpgradePokemonCpMinimum.ToString();
+            textboxUpgradePokemonIvMinimum.Text = settings.PokemonSettings.UpgradePokemonIvMinimum.ToString();
+            textboxUseGreatBallBelowCatchProbability.Text = settings.CatchSettings.UseGreatBallBelowCatchProbability.ToString();
+            textboxUseUltraBallAboveIv.Text = settings.CatchSettings.UseUltraBallBelowCatchProbability.ToString();
+            textboxFavoriteMinIvPercentage.Text = settings.PokemonSettings.FavoriteMinIvPercentage.ToString();
+            checkboxHumanizeThrows.IsChecked = settings.CatchSettings.HumanizeThrows;
+            textboxThrowAccuracyMin.Text = settings.CatchSettings.ThrowAccuracyMin.ToString();
+            textboxThrowAccuracyMax.Text = settings.CatchSettings.ThrowAccuracyMax.ToString();
+            textboxThrowSpinFrequency.Text = settings.CatchSettings.ThrowSpinFrequency.ToString();
+            textboxUseBerryBelowCatchProbability.Text = settings.CatchSettings.UseBerryBelowCatchProbability.ToString();
+
         }
 #endif
 
