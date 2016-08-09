@@ -106,6 +106,44 @@
                             <Setter Property="Padding" Value="3" />
                         </Style>
                     </TabControl.Resources>
+                    <TabItem Header="Device">
+                        <Grid x:Name="gridDeviceSettings" Background="white" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="top" Margin="0,0,0,0">
+                                <Label x:Name="labelDeviceId" Content="Device ID" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,0,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxDeviceId" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,4,0,0" Height="23" Width="80" Text="GWK74"/>
+                                <Label x:Name="labelAndroidBoardName" Content="Android Board Name" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,26,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxAndroidBoardName" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,30,0,0" Height="23" Width="80" Text="thunderc"/>
+                                <Label x:Name="labelAndroidBootLoader" Content="Android Boot Loader" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,52,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxAndroidBootloader" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,56,0,0" Height="23" Width="80" Text="unknown"/>
+                                <Label x:Name="labelDeviceBrand" Content="Device Brand" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,78,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxDeviceBrand" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,82,0,0" Height="23" Width="80" Text="LGE"/>
+                                <Label x:Name="labelDeviceModel" Content="Device Model" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,104,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxDeviceModel" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,108,0,0" Height="23" Width="80" Text="thurnderc"/>
+                                <Label x:Name="labelDeviceModelIdentifier" Content="Device Model Identifier" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,130,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxDeviceModelIdentifier" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,134,0,0" Height="23" Width="80" Text="GWK74 10282011"/>
+                                <Label x:Name="labelDeviceModelBoot" Content="Device Model Boot" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,156,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxDeviceModelBoot" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,160,0,0" Height="23" Width="80" Text="thunderc"/>
+                                <Label x:Name="labelHardwareManufacturer" Content="Hardware Manufacturer" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,182,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxHardwareManufacturer" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,186,0,0" Height="23" Width="80" Text="LGE"/>
+                                <Label x:Name="labelHardwareModel" Content="Hardware Model" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,208,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxHardwareModel" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,212,0,0" Height="23" Width="80" Text="LS-VS660"/>
+                                <Label x:Name="labelFirmwareBrand" Content="Firmware Brand" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,234,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxFirmwareBrand" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,238,0,0" Height="23" Width="80" Text="thunderc"/>
+                                <Label x:Name="labelFirmwareTags" Content="Firmware Tags" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,260,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxFirmwareTags" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,264,0,0" Height="23" Width="80" Text="test-keys"/>
+                                <Label x:Name="labelFirmwareType" Content="Firmware Type" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,286,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxFirmwareType" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,290,0,0" Height="23" Width="80" Text="eng"/>
+                                <Label x:Name="labelFirmwareFingerprint" Content="Firmware Fingerprint" VerticalAlignment="top" HorizontalAlignment="left" Margin="0,312,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="textboxFirmwareFingerprint" HorizontalAlignment="left" VerticalAlignment="top" Margin="260,316,0,0" Height="23" Width="80" Text="lge/lge_gelato/VM701:2.3.4/GRJ22/ZV4.19cd75186d:user/release-keys"/>
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="top" Margin="0,0,0,0">
+                            </Grid>
+                        </Grid>
+                    </TabItem>
                     <TabItem Header="Basic" >
                         <Grid x:Name="gridSetup" Background="white">
                             <Grid.RowDefinitions>
