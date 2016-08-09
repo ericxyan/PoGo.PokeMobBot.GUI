@@ -9,16 +9,16 @@
         Initialized="Window_Initialized"
         Loaded="Window_Loaded"
         Title="PoGo.PokeMobBot" 
-        Height="600" 
+        Height="610"
         Width="800" 
         MinWidth="800"
-        MinHeight="600">
+        MinHeight="610">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TabControl Grid.Row="0" x:Name="tabSetup" HorizontalAlignment="Stretch" Height="524" Margin="0,0,0,0" VerticalAlignment="Top" >
+        <TabControl Grid.Row="0" x:Name="tabSetup" HorizontalAlignment="Stretch" Height="534" Margin="0,0,0,0" VerticalAlignment="Top" >
             <TabItem Header="Status">
                 <Grid Background="white">
                     <Grid.RowDefinitions>
@@ -32,7 +32,7 @@
                             </StackPanel>
                         </ScrollViewer>
                     </Grid>
-                    <Grid Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                    <Grid Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                         <Grid Margin="0,0,0,30" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                             <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom">
                                 <Label x:Name="labelStatusLevel" Content="Level" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
@@ -318,6 +318,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <GroupBox Grid.Row="0" x:Name="groupboxWUpgrade" Header="Upgrade Controls" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,0">
@@ -356,6 +357,15 @@
                                             <TextBox x:Name="textboxThrowAccuracyMax" HorizontalAlignment="Left" Height="23" Margin="255,50,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
                                             <Label x:Name="labelThrowSpinFrequency" Content="Throw Spin Frequency" HorizontalAlignment="Left" Margin="20,72,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                             <TextBox x:Name="textboxThrowSpinFrequency" HorizontalAlignment="Left" Height="23" Margin="255,76,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Grid.Row="4" x:Name="groupboxStartupSettings" Header="Startup Settings" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                                        <Grid HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="360">
+                                            <CheckBox x:Name="checkboxDumpPokemonStats" Content="Dump Pokemon Statss" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Checked="checkboxChanged" Unchecked="checkboxChanged" IsEnabledChanged="checkboxIsEnabledChanged"/>
+                                            <Label x:Name="labelAmountOfPokemonToDisplayOnStart" Content="Amount of Pokemon To Display on Start" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                            <TextBox x:Name="textboxAmountOfPokemonToDisplayOnStart" HorizontalAlignment="Left" Height="23" Margin="255,24,0,0" Text="95.0" VerticalAlignment="Top" Width="80"/>
+                                            <CheckBox x:Name="checkboxDisplayPokemonMaxPoweredCp" Content="Display Pokemon Max PoweredCp" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20,46,0,0" FontWeight="Bold"/>
+                                            <CheckBox x:Name="checkboxDisplayPokemonMovesetRank" Content="Display Pokemon Moveset Rank" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20,72,0,0" FontWeight="Bold"/>
                                         </Grid>
                                     </GroupBox>
                                 </Grid>
